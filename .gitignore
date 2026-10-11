@@ -1,0 +1,13 @@
+# local tooling
+node_modules
+temporary screenshots/
+.DS_Store
+
+# original image generations (optimised copies live in assets/img)
+assets/img/raw/
+
+# client working documents and design reference: not for a public repository
+UGP-materialy-pro-biznes.docx
+додаток.txt
+CLIENT_BRIEF.md
+1920w light.png
