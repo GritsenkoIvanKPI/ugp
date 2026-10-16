@@ -192,7 +192,6 @@
 
       /* Header phones: stacked, each one tap to call */
       .header-phone { @apply flex items-center gap-1.5 whitespace-nowrap py-1 text-[.9375rem] font-medium leading-tight tabular-nums text-ink hover:text-brand active:opacity-70; }
-      .header-phone.is-todo { @apply text-muted hover:text-muted; }
 
       /* Nav links */
       .nav-link { @apply relative py-2 text-base text-muted hover:text-ink active:opacity-70; }
@@ -294,11 +293,7 @@
       </nav>
 
       <div class="flex items-center gap-3 lg:gap-6">
-        <!-- Two phone numbers, one tap to call. ДРУГИЙ НОМЕР: замінити плейсхолдер на посилання tel: після отримання від клієнта. -->
-        <div class="flex flex-col items-start max-[359px]:hidden" aria-label="Телефони">
-          <a class="header-phone" href="tel:+380952707611"><svg class="icon h-4 w-4 text-brand"><use href="#i-phone"/></svg>+380 95 270 7611</a>
-          <span class="header-phone is-todo" title="Другий номер буде додано"><svg class="icon h-4 w-4 text-brand"><use href="#i-phone"/></svg>+380 __ ___ __ __</span>
-        </div>
+        <a class="header-phone max-[359px]:hidden" href="tel:+380952707611"><svg class="icon h-4 w-4 text-brand"><use href="#i-phone"/></svg>+380 95 270 7611</a>
         <a href="tel:+380952707611" class="arrow-btn min-[360px]:hidden" aria-label="Зателефонувати: +380 95 270 7611"><svg class="icon"><use href="#i-phone"/></svg></a>
         <a href="#contact" class="btn btn-primary hidden xl:inline-flex">Обговорити проєкт</a>
         <button type="button" id="menu-toggle" class="arrow-btn lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити меню">
@@ -320,7 +315,6 @@
           <a href="#contact" class="btn btn-primary w-full">Обговорити проєкт <svg class="icon"><use href="#i-arrow-right"/></svg></a>
           <div class="mt-4 flex flex-wrap gap-x-8 gap-y-1 font-medium">
             <a class="flex items-center gap-2 py-2 hover:text-brand active:opacity-70" href="tel:+380952707611"><svg class="icon text-muted"><use href="#i-phone"/></svg>+380 95 270 7611</a>
-            <span class="flex items-center gap-2 py-2 text-muted" title="Другий номер буде додано"><svg class="icon text-muted"><use href="#i-phone"/></svg>+380 __ ___ __ __</span>
             <a class="flex items-center gap-2 py-2 hover:text-brand active:opacity-70" href="mailto:hello@ugp.ua"><svg class="icon text-muted"><use href="#i-mail"/></svg>hello@ugp.ua</a>
           </div>
         </div>
@@ -999,7 +993,6 @@
             <h2 class="text-sm font-medium">Контакти</h2>
             <ul class="mt-3 flex flex-col text-mist">
               <li><a class="inline-block py-2 hover:text-white hover:underline active:opacity-70 whitespace-nowrap" href="tel:+380952707611">+380 95 270 7611</a></li>
-              <li><span class="inline-block whitespace-nowrap py-2 text-mist/60" title="Другий номер буде додано">+380 __ ___ __ __</span></li>
               <li><a class="inline-block py-2 hover:text-white hover:underline active:opacity-70" href="mailto:hello@ugp.ua">hello@ugp.ua</a></li>
               <li><a class="inline-block py-2 hover:text-white hover:underline active:opacity-70" href="https://t.me/+380952707611" target="_blank" rel="noopener">Telegram</a></li>
               <li><a class="inline-block py-2 hover:text-white hover:underline active:opacity-70" href="viber://chat?number=%2B380952707611">Viber</a></li>
