@@ -872,7 +872,7 @@
         <div class="reveal">
           <p class="eyebrow">Зворотний зв’язок</p>
           <h2 class="h2 mt-5">Надішліть запит</h2>
-          <p class="body mt-6">Достатньо імені та одного способу зв’язку. Почнемо з вашого завдання, визначимо формат роботи та наступні кроки.</p>
+          <p class="body mt-6">Достатньо імені та номера телефону. Почнемо з вашого завдання, визначимо формат роботи та наступні кроки.</p>
           <ul class="mt-10 flex flex-col gap-5">
             <li class="flex items-start gap-3"><svg class="icon mt-0.5 text-brand"><use href="#i-check"/></svg><span>Первинна консультація — безкоштовна й без зобов’язань</span></li>
             <li class="flex items-start gap-3"><svg class="icon mt-0.5 text-brand"><use href="#i-check"/></svg><span>Онлайн або офлайн у Києві</span></li>
@@ -890,9 +890,9 @@
               <p class="field-error" id="e-name">Вкажіть, будь ласка, ім’я.</p>
             </div>
             <div>
-              <label class="field-label" for="f-contact">Телефон або e-mail <span class="text-brand" aria-hidden="true">*</span></label>
-              <input class="field" id="f-contact" name="contact" type="text" inputmode="email" autocomplete="off" required placeholder="+380… або e-mail" aria-describedby="e-contact">
-              <p class="field-error" id="e-contact">Вкажіть номер телефону або e-mail у правильному форматі.</p>
+              <label class="field-label" for="f-contact">Телефон <span class="text-brand" aria-hidden="true">*</span></label>
+              <input class="field" id="f-contact" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="+380 __ ___ __ __" aria-describedby="e-contact">
+              <p class="field-error" id="e-contact">Вкажіть номер телефону, наприклад +380 95 123 45 67.</p>
             </div>
             <div class="sm:col-span-2">
               <label class="field-label" for="f-topic">Завдання <span class="font-normal text-muted">(необов’язково)</span></label>
@@ -1268,11 +1268,8 @@
       /* Lead form */
       var form = $('#lead-form'), statusBox = $('#form-status'), statusText = $('#form-status-text'), submit = $('#f-submit');
       var fName = $('#f-name'), fContact = $('#f-contact'), fConsent = $('#f-consent'), consentWrap = $('#consent-wrap');
-      var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-      function contactOk(v) {
+      function contactOk(v) {             /* phone number: 9–15 digits, with spaces, brackets, dashes or a leading + */
         v = v.trim();
-        if (emailRe.test(v)) return true;
         var digits = v.replace(/\D/g, '');
         return /^[+\d\s().-]+$/.test(v) && digits.length >= 9 && digits.length <= 15;
       }
@@ -1304,7 +1301,7 @@
 
         var data = {
           name: fName.value.trim(),
-          contact: fContact.value.trim(),
+          phone: fContact.value.trim(),
           topic: topic.value,
           message: $('#f-message').value.trim(),
           consent: true,
@@ -1314,7 +1311,7 @@
 
         if (!endpoint) {
           /* No delivery system connected yet: hand the request to the visitor's mail app. */
-          var body = 'Ім’я: ' + data.name + '\nКонтакт: ' + data.contact +
+          var body = 'Ім’я: ' + data.name + '\nТелефон: ' + data.phone +
             (data.topic ? '\nЗавдання: ' + data.topic : '') +
             (data.message ? '\n\n' + data.message : '');
           location.href = 'mailto:' + form.getAttribute('data-email') +
