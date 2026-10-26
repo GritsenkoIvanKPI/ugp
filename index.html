@@ -205,6 +205,13 @@
       .case-facts > div:last-child dt { @apply text-brand; }
       .case-facts > div:last-child dd { @apply font-medium; }
 
+      /* Client logos: supplied artwork is white, shown in one ink tone on the light strip */
+      .client-link { @apply inline-flex items-center rounded-md py-1; }
+      .client-logo { @apply block; filter: brightness(0); opacity: .82; transition: opacity .3s var(--ease-out), transform .4s var(--spring); }
+      .client-logo-fine { opacity: 1; }   /* thin line art needs full strength to read */
+      .client-link:hover .client-logo { opacity: 1; transform: translateY(-2px); }
+      .client-link:active .client-logo { opacity: .6; }
+
       /* Header phones: stacked, each one tap to call */
       .header-phone { @apply flex items-center gap-1.5 whitespace-nowrap py-1 text-[.9375rem] font-medium leading-tight tabular-nums text-ink hover:text-brand active:opacity-70; }
 
@@ -816,12 +823,11 @@
     <section id="clients" class="border-y border-line bg-surface py-10" aria-labelledby="clients-title">
       <div class="wrap flex flex-col gap-8 lg:flex-row lg:items-center">
         <h2 id="clients-title" class="reveal font-display text-xl font-medium leading-snug text-muted lg:w-72 lg:shrink-0 lg:border-r lg:border-line-strong lg:py-3 lg:pr-10">Нам довіряють</h2>
-        <!-- Логотипи Cyberion та «Громада Захисників» замінити на оригінальні файли після отримання. -->
-        <ul class="reveal d1 grid flex-1 gap-x-6 gap-y-8 whitespace-nowrap sm:grid-cols-2 lg:pl-6 xl:grid-cols-4">
+        <!-- Логотипи клієнтів (оригінали білі, показуємо в один темний тон). Для РЕМБУД-2 і Сервіс Солюшнз логотипів немає. -->
+        <ul class="reveal d1 grid flex-1 items-center gap-x-6 gap-y-8 whitespace-nowrap sm:grid-cols-2 lg:pl-6 xl:grid-cols-4">
           <li>
-            <a href="https://www.cyberion.ua" target="_blank" rel="noopener" class="group block text-muted hover:text-ink active:opacity-70">
-              <span class="block font-display text-xl font-semibold uppercase tracking-[.14em]">Cyberion</span>
-              <span class="mt-1 flex items-center gap-1 text-[.8125rem]">cyberion.ua <svg class="icon h-3 w-3"><use href="#i-external"/></svg></span>
+            <a href="https://www.cyberion.ua" target="_blank" rel="noopener" class="client-link" aria-label="Cyberion — сайт компанії">
+              <img class="client-logo h-7 w-auto" src="assets/img/clients/cyberion.svg" width="262" height="44" alt="Cyberion">
             </a>
           </li>
           <li class="text-muted">
@@ -833,9 +839,8 @@
             <span class="mt-1 block text-[.8125rem]">ТОВ</span>
           </li>
           <li>
-            <a href="https://www.facebook.com/share/1DGn5bZpL8/?mibextid=wwXIfr" target="_blank" rel="noopener" class="group block text-muted hover:text-ink active:opacity-70">
-              <span class="block font-display text-xl font-semibold tracking-tight">Громада Захисників</span>
-              <span class="mt-1 flex items-center gap-1 text-[.8125rem]">Громадська організація <svg class="icon h-3 w-3"><use href="#i-external"/></svg></span>
+            <a href="https://www.facebook.com/share/1DGn5bZpL8/?mibextid=wwXIfr" target="_blank" rel="noopener" class="client-link" aria-label="Громада Захисників — сторінка організації">
+              <img class="client-logo client-logo-fine h-20 w-auto" src="assets/img/clients/gromada-zakhysnykiv.webp" width="478" height="389" loading="lazy" alt="Громада Захисників">
             </a>
           </li>
         </ul>
