@@ -10,7 +10,7 @@
   <meta property="og:locale" content="uk_UA">
   <meta property="og:site_name" content="Ukraine Gateway Partners">
   <meta property="og:title" content="UGP — реалізація інвестиційних проєктів в Україні">
-  <meta property="og:description" content="Від аналізу до працюючого активу. Організовуємо, контролюємо, відповідаємо за погоджений результат.">
+  <meta property="og:description" content="Допомагаємо інвесторам і власникам активів реалізувати проєкти. Організовуємо роботи та контролюємо виконання.">
   <meta property="og:image" content="assets/img/hero-3.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='-0.96%203.39%20100%20100'%3E%3Crect%20x='-0.96'%20y='3.39'%20width='100'%20height='100'%20rx='18'%20fill='%2316202e'/%3E%3Cg%20transform='translate(49.04%2053.39)%20scale(.72)%20translate(-49.04%20-53.39)'%3E%3Cpath%20d='M20%2018.7695V69.5886C20%2076.3584%2025.488%2081.8465%2032.2579%2081.8465H76.5649V41.6253M42.8558%2060.7783V38.9439C42.8558%2032.1741%2048.3438%2026.6861%2055.1137%2026.6861H84.2261'%20fill='none'%20stroke='%23fafafa'%20stroke-width='12.3077'/%3E%3C/g%3E%3C/svg%3E">
@@ -27,12 +27,12 @@
           colors: {
             page: '#fafafa',
             ink: '#131210',
-            muted: '#5f5e5c',
+            muted: '#2f2e2b',
             navy: { DEFAULT: '#16202e', 700: '#1e2a3b', 600: '#27364a' },
             brand: { DEFAULT: '#144486', soft: '#89a1c2' },
             surface: { DEFAULT: '#f3f3f3', warm: '#f6f5f3', deep: '#e7e8ea' },
             line: { DEFAULT: '#e2e2e1', strong: '#c6c6c6' },
-            mist: '#aeb6bf',
+            mist: '#d3d9df',
           },
           fontFamily: {
             display: ['Onest', 'Arial', 'sans-serif'],
@@ -61,6 +61,7 @@
       body { @apply bg-page font-sans text-ink antialiased; line-height: 1.55; }
       :focus-visible { outline: 2px solid theme('colors.brand.DEFAULT'); outline-offset: 3px; border-radius: .375rem; }
       .on-navy :focus-visible, .bg-navy :focus-visible { outline-color: theme('colors.page'); }
+      [hidden] { display: none !important; }
       ::selection { background: theme('colors.navy.DEFAULT'); color: theme('colors.page'); }
     }
 
@@ -193,6 +194,16 @@
       .stats-run .stat:nth-child(3)::before { transition-delay: .24s; }
       .stats-run .stat:nth-child(4)::before { transition-delay: .36s; }
       .stat-num { @apply inline-block; font-variant-numeric: tabular-nums; }
+
+      /* Case facts: small labels over readable text, rows on hairlines, the result set apart */
+      .case-facts { @apply mt-6 flex flex-col; }
+      .case-facts > div { @apply border-t border-line-strong py-4; }
+      .case-facts dt { @apply text-[.8125rem] font-medium uppercase text-muted; letter-spacing: .06em; }
+      .case-facts dd { @apply mt-1.5 text-base text-ink; line-height: 1.55; }
+      .case-facts > div:last-child { @apply mt-3 rounded-lg border-t-0 bg-white px-4 py-4 shadow-raised sm:px-5; }
+      @media (max-width: 359px) { .case-facts dd { font-size: .9375rem; } }
+      .case-facts > div:last-child dt { @apply text-brand; }
+      .case-facts > div:last-child dd { @apply font-medium; }
 
       /* Header phones: stacked, each one tap to call */
       .header-phone { @apply flex items-center gap-1.5 whitespace-nowrap py-1 text-[.9375rem] font-medium leading-tight tabular-nums text-ink hover:text-brand active:opacity-70; }
@@ -336,7 +347,7 @@
           <h1 class="h1 reveal max-w-[12.5em]">Реалізація інвестиційних проєктів в&nbsp;Україні</h1>
 
           <div class="reveal d1 shrink-0 sm:max-w-[26rem]">
-            <p class="text-lg leading-normal text-muted">Від аналізу до працюючого активу. Організовуємо, контролюємо та відповідаємо за погоджений результат.</p>
+            <p class="text-lg leading-normal text-muted">Допомагаємо інвесторам і власникам активів реалізувати проєкти. Організовуємо роботи та контролюємо виконання.</p>
             <div class="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href="#contact" class="btn btn-primary">Обговорити проєкт <svg class="icon"><use href="#i-arrow-right"/></svg></a>
               <a href="#services" class="btn btn-outline">Напрями роботи <svg class="icon-down h-5 w-5 shrink-0 fill-none stroke-current" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow-down"/></svg></a>
@@ -356,8 +367,8 @@
             <span class="hidden h-14 w-px shrink-0 bg-line-strong xl:block" aria-hidden="true"></span>
             <span class="min-w-0">
               <span class="block text-sm font-medium text-brand">Первинна консультація</span>
-              <span class="mt-1 block whitespace-nowrap font-display text-xl font-medium leading-tight tracking-tight xl:text-2xl">Без зобов’язань</span>
-              <span class="mt-1 block text-sm text-muted">Онлайн або офлайн · Київ</span>
+              <span class="mt-1 block whitespace-nowrap font-display text-xl font-medium leading-tight tracking-tight xl:text-2xl">Безкоштовно</span>
+              <span class="mt-1 block text-sm text-muted">Онлайн або особисто</span>
             </span>
           </figcaption>
         </figure>
@@ -375,7 +386,7 @@
             <p class="eyebrow">Напрями роботи</p>
             <h2 class="h2 mt-5 max-w-[14em]">Комплексна реалізація або окреме завдання</h2>
           </div>
-          <p class="body reveal d1 max-w-[19rem]">Основний формат — комплексна реалізація з погодженим результатом у вигляді працюючого активу.</p>
+          <p class="body reveal d1 max-w-[19rem]">Ведемо проєкт повністю або виконуємо окреме завдання: перевірку об’єкта, земельні й дозвільні питання.</p>
         </div>
 
         <!-- Comprehensive delivery -->
@@ -384,51 +395,51 @@
             <div class="max-w-[34rem]">
               <p class="label text-mist">Основний формат</p>
               <h3 class="h4 mt-3">Комплексна реалізація</h3>
-              <p class="mt-3 text-mist">Беремо проєкт від перевірки до передачі працюючого активу інвестору або оператору. За запитом оцінюємо можливості й у суміжних сегментах.</p>
+              <p class="mt-3 text-mist">Організовуємо реалізацію проєкту від перевірки об’єкта до передачі замовнику. Координуємо земельні й дозвільні питання, проєктування, підрядників, введення в експлуатацію.</p>
             </div>
             <a href="#contact" data-topic="Комплексна реалізація" class="btn btn-light self-start">Обговорити проєкт <svg class="icon"><use href="#i-arrow-right"/></svg></a>
           </div>
           <ol data-more class="mt-10 grid gap-x-6 gap-y-6 border-t border-white/15 pt-8 sm:grid-cols-2 lg:grid-cols-3">
             <li class="border-l border-white/25 pl-4"><span class="block text-sm text-mist">//01</span><span class="mt-2 block font-medium leading-snug">Due Diligence</span></li>
-            <li class="border-l border-white/25 pl-4"><span class="block text-sm text-mist">//02</span><span class="mt-2 block font-medium leading-snug">Дорожня карта виконання</span></li>
-            <li class="border-l border-white/25 pl-4"><span class="block text-sm text-mist">//03</span><span class="mt-2 block font-medium leading-snug">Організація учасників</span></li>
-            <li class="border-l border-white/25 pl-4"><span class="block text-sm text-mist">//04</span><span class="mt-2 block font-medium leading-snug">Координація та контроль</span></li>
+            <li class="border-l border-white/25 pl-4"><span class="block text-sm text-mist">//02</span><span class="mt-2 block font-medium leading-snug">План реалізації</span></li>
+            <li class="border-l border-white/25 pl-4"><span class="block text-sm text-mist">//03</span><span class="mt-2 block font-medium leading-snug">Команда та підрядники</span></li>
+            <li class="border-l border-white/25 pl-4"><span class="block text-sm text-mist">//04</span><span class="mt-2 block font-medium leading-snug">Організація і контроль робіт</span></li>
             <li class="border-l border-white/25 pl-4"><span class="block text-sm text-mist">//05</span><span class="mt-2 block font-medium leading-snug">Введення в експлуатацію</span></li>
-            <li class="border-l border-white/25 pl-4"><span class="block text-sm text-mist">//06</span><span class="mt-2 block font-medium leading-snug">Передача активу</span></li>
+            <li class="border-l border-white/25 pl-4"><span class="block text-sm text-mist">//06</span><span class="mt-2 block font-medium leading-snug">Передача об’єкта замовнику</span></li>
           </ol>
         </article>
 
         <!-- Competencies bento -->
         <div class="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <article class="card-warm lift reveal flex min-h-[20rem] flex-col p-6 sm:p-8">
-            <h3 class="h5">Due Diligence</h3>
-            <p class="body mt-3">Перевірка активу, прав, обмежень, ризиків та інвестиційних передумов.</p>
-            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>Висновки для інвестиційного рішення та сценарії реалізації.</p>
-            <a href="#contact" data-topic="Due Diligence" class="btn btn-outline mt-auto self-start">Обговорити <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+          <article class="card-warm lift reveal flex min-h-[20rem] flex-col p-6 max-[359px]:p-4 sm:p-8">
+            <h3 class="h5">Перевірка об’єкта перед інвестуванням (Due Diligence)</h3>
+            <p class="body mt-3">Перевіряємо права на актив, містобудівні, екологічні, соціальні обмеження та дозвільні документи.</p>
+            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>Звіт щодо виявлених ризиків і подальших дій.</p>
+            <a href="#contact" data-topic="Перевірка об’єкта перед інвестуванням (Due Diligence)" class="btn btn-outline mt-auto self-start">Обговорити <svg class="icon"><use href="#i-arrow-right"/></svg></a>
           </article>
 
           <figure class="media reveal d1 hidden min-h-[20rem] xl:block">
             <img class="absolute inset-0" src="assets/img/svc-docs.jpg" width="1200" height="896" loading="lazy" alt="Перевірка документів на об’єкт і кадастрової карти">
           </figure>
 
-          <article data-more class="card-warm lift reveal d2 flex min-h-[20rem] flex-col p-6 sm:p-8">
-            <h3 class="h5">GR та регуляторні рішення</h3>
+          <article data-more class="card-warm lift reveal d2 flex min-h-[20rem] flex-col p-6 max-[359px]:p-4 sm:p-8">
+            <h3 class="h5">Дозволи та взаємодія з органами влади (GR)</h3>
             <p class="body mt-3">Взаємодія з органами державної влади та місцевого самоврядування.</p>
-            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>Регуляторна дорожня карта та представлення інтересів.</p>
-            <a href="#contact" data-topic="GR та регуляторні рішення" class="btn btn-outline mt-auto self-start">Обговорити <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>План погоджень, підготовлені документи та супровід розгляду.</p>
+            <a href="#contact" data-topic="Дозволи та взаємодія з органами влади (GR)" class="btn btn-outline mt-auto self-start">Обговорити <svg class="icon"><use href="#i-arrow-right"/></svg></a>
           </article>
 
-          <article data-more class="card-warm lift reveal flex min-h-[20rem] flex-col p-6 sm:p-8">
-            <h3 class="h5">Громади та стейкхолдери</h3>
-            <p class="body mt-3">Діалог із громадами, комунікації та репутація.</p>
-            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>План взаємодії та зрозуміла позиція проєкту.</p>
-            <a href="#contact" data-topic="Взаємодія з громадами та стейкхолдерами" class="btn btn-outline mt-auto self-start">Обговорити <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+          <article data-more class="card-warm lift reveal flex min-h-[20rem] flex-col p-6 max-[359px]:p-4 sm:p-8">
+            <h3 class="h5">Громади та репутація</h3>
+            <p class="body mt-3">Організовуємо діалог із громадою, репутація проєкту.</p>
+            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>План взаємодії та ефективне позиціонування проєкту.</p>
+            <a href="#contact" data-topic="Громади та репутація" class="btn btn-outline mt-auto self-start">Обговорити <svg class="icon"><use href="#i-arrow-right"/></svg></a>
           </article>
 
-          <article data-more class="card-warm lift reveal d1 flex min-h-[20rem] flex-col p-6 sm:p-8">
+          <article data-more class="card-warm lift reveal d1 flex min-h-[20rem] flex-col p-6 max-[359px]:p-4 sm:p-8">
             <h3 class="h5">Врегулювання спорів та медіація</h3>
-            <p class="body mt-3">Переговори, медіація, судовий супровід адвокатом-партнером.</p>
-            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>Стратегія врегулювання та захист ваших інтересів.</p>
+            <p class="body mt-3">Переговори, медіація та судове представництво адвокатом-партнером.</p>
+            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>Стратегія врегулювання спору та захист інтересів замовника.</p>
             <a href="#contact" data-topic="Врегулювання спорів та медіація" class="btn btn-outline mt-auto self-start">Обговорити <svg class="icon"><use href="#i-arrow-right"/></svg></a>
           </article>
 
@@ -436,22 +447,18 @@
             <img class="absolute inset-0" src="assets/img/svc-community.jpg" width="1200" height="896" loading="lazy" alt="Рукостискання під час зустрічі з представниками громади">
           </figure>
 
-          <figure class="media reveal hidden min-h-[20rem] xl:block">
-            <img class="absolute inset-0" src="assets/img/svc-land.jpg" width="1200" height="896" loading="lazy" alt="Земельна ділянка під забудову, вид згори">
-          </figure>
-
-          <article data-more class="card-warm lift reveal d1 flex min-h-[20rem] flex-col p-6 sm:p-8">
+          <article data-more class="card-warm lift reveal md:max-xl:col-span-2 d1 flex min-h-[20rem] flex-col p-6 max-[359px]:p-4 sm:p-8">
             <h3 class="h5">Земельне, аграрне та екологічне право</h3>
-            <p class="body mt-3">Права на землю, цільове призначення, екологічні обмеження.</p>
-            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>Правові рішення для використання активу.</p>
+            <p class="body mt-3">Оформлення прав на землю, зміна цільового призначення, екологічні обмеження (ОВД, викиди).</p>
+            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>Оформлені документи.</p>
             <a href="#contact" data-topic="Земельне, аграрне та екологічне право" class="btn btn-outline mt-auto self-start">Обговорити <svg class="icon"><use href="#i-arrow-right"/></svg></a>
           </article>
 
-          <article class="svc-key card-warm lift reveal d2 flex min-h-[20rem] flex-col p-6 sm:p-8">
-            <h3 class="h5">Організація та координація девелоперського проєкту</h3>
-            <p class="body mt-3">Модель проєкту, склад учасників, координація проєктних і дозвільних завдань.</p>
-            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>Узгоджений план і керований процес створення активу.</p>
-            <a href="#contact" data-topic="Організація девелоперського проєкту" class="btn btn-outline mt-auto self-start">Обговорити <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+          <article class="svc-key card-warm lift reveal md:col-span-2 d2 flex min-h-[20rem] flex-col p-6 max-[359px]:p-4 sm:p-8">
+            <h3 class="h5">Управління девелоперським проєктом</h3>
+            <p class="body mt-3">Плануємо роботи, дозвільні процедури, координуємо проєктування й підрядників. Контролюємо строки та бюджет.</p>
+            <p class="mt-5 border-t border-line pb-6 pt-4 text-[.9375rem]"><span class="label mb-1 block text-[.8125rem]">Результат</span>Погоджений план робіт, строки, бюджет об’єкта.</p>
+            <a href="#contact" data-topic="Управління девелоперським проєктом" class="btn btn-outline mt-auto self-start">Обговорити <svg class="icon"><use href="#i-arrow-right"/></svg></a>
           </article>
         </div>
 
@@ -466,13 +473,13 @@
     <section class="border-y border-line bg-surface py-12 lg:py-16" aria-labelledby="cta1-title">
       <div class="wrap flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <div class="reveal lg:max-w-[16rem] lg:border-r lg:border-line-strong lg:pr-10">
-          <h2 id="cta1-title" class="h6 text-muted">З яким завданням ви прийшли?</h2>
+          <h2 id="cta1-title" class="h6 text-muted">Що потрібно для вашого проєкту?</h2>
         </div>
         <ul class="reveal d1 flex flex-1 flex-col gap-3 sm:flex-row sm:flex-wrap">
           <li><a href="#contact" data-topic="Відновити зупинений проєкт" class="btn btn-outline max-[359px]:px-3 max-[359px]:text-sm">Відновити зупинений проєкт</a></li>
-          <li><a href="#contact" data-topic="Організувати виконання" class="btn btn-outline max-[359px]:px-3 max-[359px]:text-sm">Організувати виконання</a></li>
-          <li><a href="#contact" data-topic="Оцінити проєкт до інвестування" class="btn btn-outline max-[359px]:px-3 max-[359px]:text-sm">Оцінити проєкт до інвестування</a></li>
-          <li><a href="#contact" data-topic="Підготувати до запуску" class="btn btn-outline max-[359px]:px-3 max-[359px]:text-sm">Підготувати до запуску</a></li>
+          <li><a href="#contact" data-topic="Організувати реалізацію" class="btn btn-outline max-[359px]:px-3 max-[359px]:text-sm">Організувати реалізацію</a></li>
+          <li><a href="#contact" data-topic="Перевірити об’єкт до інвестування" class="btn btn-outline max-[359px]:px-3 max-[359px]:text-sm">Перевірити об’єкт до інвестування</a></li>
+          <li><a href="#contact" data-topic="Підготувати проєкт до запуску" class="btn btn-outline max-[359px]:px-3 max-[359px]:text-sm">Підготувати проєкт до запуску</a></li>
         </ul>
         <a href="#contact" class="btn btn-primary reveal d2 self-start lg:self-auto">Обговорити проєкт <svg class="icon"><use href="#i-arrow-right"/></svg></a>
       </div>
@@ -501,8 +508,8 @@
               <div class="flex items-start gap-4">
                 <svg class="icon icon-lg mt-0.5"><use href="#i-search"/></svg>
                 <div>
-                  <h3 class="h5">Перешкоди — до інвестицій</h3>
-                  <p class="body mt-3">Оцінюємо, чи можлива реалізація, і обговорюємо виявлені перешкоди до основних вкладень і початку робіт.</p>
+                  <h3 class="h5">Управління ризиками</h3>
+                  <p class="body mt-3">Аналізуємо ризики до інвестування та початку робіт. Мінімізація ризиків.</p>
                 </div>
               </div>
             </li>
@@ -510,8 +517,8 @@
               <div class="flex items-start gap-4">
                 <svg class="icon icon-lg mt-0.5"><use href="#i-checklist"/></svg>
                 <div>
-                  <h3 class="h5">Контрольні точки на кожному етапі</h3>
-                  <p class="body mt-3">Визначаємо відповідальних, строки та критерії. Наступний етап — після перевірки попереднього.</p>
+                  <h3 class="h5">Контроль виконання</h3>
+                  <p class="body mt-3">Визначаємо відповідальних, строки та результат кожного етапу. Наступний етап — після перевірки попереднього.</p>
                 </div>
               </div>
             </li>
@@ -519,8 +526,8 @@
               <div class="flex items-start gap-4">
                 <svg class="icon icon-lg mt-0.5"><use href="#i-users"/></svg>
                 <div>
-                  <h3 class="h5">Одна точка координації</h3>
-                  <p class="body mt-3">Проєктувальники, девелопери й підрядники відповідають за свій напрям. Спільну роботу організовуємо ми.</p>
+                  <h3 class="h5">Одна точка управління</h3>
+                  <p class="body mt-3">Організовуємо роботу проєктувальників, підрядників та інших учасників. Контролюємо виконання спільного плану.</p>
                 </div>
               </div>
             </li>
@@ -540,8 +547,8 @@
       <div class="wrap flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div class="reveal">
           <p class="eyebrow">Як ми працюємо</p>
-          <h2 id="process-title" class="h2 mt-5 max-w-[13em]">Від первинної оцінки до передачі активу</h2>
-          <p class="body mt-5 max-w-[28rem]">Кожен етап має відповідальних, строки та контрольні точки. Обсяг робіт і критерії результату визначає договір.</p>
+          <h2 id="process-title" class="h2 mt-5 max-w-[13em]">Від первинного аналізу до реалізації проєкту</h2>
+          <p class="body mt-5 max-w-[28rem]">Погоджуємо обсяг робіт, строки та результат кожного етапу.</p>
         </div>
         <div class="reveal d1 flex shrink-0 items-center gap-4" aria-hidden="true">
           <span class="font-medium tabular-nums"><span id="process-count">01</span> <span class="text-muted">/ 05</span></span>
@@ -557,8 +564,8 @@
             <span class="grid h-14 w-14 place-items-center rounded-lg bg-white text-ink shadow-raised"><svg class="icon"><use href="#i-search"/></svg></span>
             <span class="font-medium">//01</span>
           </div>
-          <h3 class="h5 mt-auto">Первинна оцінка</h3>
-          <p class="mt-4 text-page/80">Знайомимося із завданням та активом і оцінюємо, чи можлива реалізація.</p>
+          <h3 class="h5 mt-auto">Первинний аналіз</h3>
+          <p class="mt-4 text-page/90">Знайомимося із завданням та активом і оцінюємо, чи можлива реалізація.</p>
         </li>
         <li class="card hscroll-card group relative isolate flex w-[min(25rem,86vw)] flex-col overflow-hidden p-6 text-page sm:p-8">
           <img class="hscroll-bg" src="assets/img/process-2.jpg" width="896" height="1200" loading="lazy" alt="Макети альтернативних об’ємів будівлі на столі">
@@ -568,7 +575,7 @@
             <span class="font-medium">//02</span>
           </div>
           <h3 class="h5 mt-auto">Варіанти реалізації</h3>
-          <p class="mt-4 text-page/80">Опрацьовуємо сценарії та обговорюємо перешкоди до основних інвестицій.</p>
+          <p class="mt-4 text-page/90">Порівнюємо та погоджуємо варіанти реалізації, попередні витрати, строки та ризики.</p>
         </li>
         <li class="card hscroll-card group relative isolate flex w-[min(25rem,86vw)] flex-col overflow-hidden p-6 text-page sm:p-8">
           <img class="hscroll-bg" src="assets/img/process-3.jpg" width="896" height="1200" loading="lazy" alt="Графік виконання проєкту з контрольними точками на стіні">
@@ -578,7 +585,7 @@
             <span class="font-medium">//03</span>
           </div>
           <h3 class="h5 mt-auto">Дорожня карта</h3>
-          <p class="mt-4 text-page/80">Фіксуємо етапи, відповідальних, строки та контрольні точки.</p>
+          <p class="mt-4 text-page/90">Фіксуємо етапи, відповідальних, строки та контрольні точки.</p>
         </li>
         <li class="card hscroll-card group relative isolate flex w-[min(25rem,86vw)] flex-col overflow-hidden p-6 text-page sm:p-8">
           <img class="hscroll-bg" src="assets/img/process-4.jpg" width="896" height="1200" loading="lazy" alt="Будівництво житлового будинку з баштовим краном">
@@ -587,8 +594,8 @@
             <span class="grid h-14 w-14 place-items-center rounded-lg bg-white text-ink shadow-raised"><svg class="icon"><use href="#i-target"/></svg></span>
             <span class="font-medium">//04</span>
           </div>
-          <h3 class="h5 mt-auto">Керована реалізація</h3>
-          <p class="mt-4 text-page/80">Організовуємо роботу профільних фахівців і контролюємо виконання.</p>
+          <h3 class="h5 mt-auto">Організація виконання</h3>
+          <p class="mt-4 text-page/90">Організовуємо учасників проєкту, бюджет, контроль виконання робіт.</p>
         </li>
         <li class="card hscroll-card group relative isolate flex w-[min(25rem,86vw)] flex-col overflow-hidden p-6 text-page sm:p-8">
           <img class="hscroll-bg" src="assets/img/process-5.jpg" width="896" height="1200" loading="lazy" alt="Передача ключів у вестибюлі нової будівлі">
@@ -598,7 +605,7 @@
             <span class="font-medium">//05</span>
           </div>
           <h3 class="h5 mt-auto">Передача результату</h3>
-          <p class="mt-4 text-page/80">Передаємо результат або працюючий актив інвестору чи його представнику.</p>
+          <p class="mt-4 text-page/90">Передаємо документи або об’єкт відповідно до погодженого обсягу робіт.</p>
         </li>
       </ol>
      </div>
@@ -621,45 +628,45 @@
           </figure>
 
           <div class="flex flex-col">
-            <p class="reveal max-w-[36rem] font-display text-xl leading-snug text-page/85 lg:text-2xl">UGP — Ukraine Gateway Partners. Оцінюємо можливість реалізації, формуємо дорожню карту, організовуємо роботу профільних фахівців і контролюємо виконання до погодженого результату.</p>
+            <p class="reveal max-w-[36rem] font-display text-xl leading-snug text-page/95 lg:text-2xl">UGP об’єднує партнерів із досвідом у девелопменті, управлінні, земельних питаннях і GR. Організовуємо реалізацію проєктів для інвесторів та власників активів.</p>
 
             <ul class="mt-10 lg:mt-auto">
               <li class="reveal flex flex-col items-start gap-4 border-b border-white/15 py-8 sm:flex-row sm:items-center">
                 <span class="grid h-20 w-20 shrink-0 place-items-center rounded-lg bg-surface text-brand lg:h-[6.5rem] lg:w-[6.5rem]"><svg class="icon icon-lg"><use href="#i-scale"/></svg></span>
                 <div>
-                  <h3 class="h6">Юридична експертиза</h3>
-                  <p class="mt-2 max-w-[25rem] text-mist">Нерухомість, земельне та інвестиційне право, судовий супровід адвокатом-партнером.</p>
+                  <h3 class="h6">Правовий супровід</h3>
+                  <p class="mt-2 max-w-[25rem] text-mist">Земля, нерухомість, інвестиційні договори та спори. Судове представництво забезпечує адвокат-партнер.</p>
                 </div>
               </li>
               <li class="reveal flex flex-col items-start gap-4 border-b border-white/15 py-8 sm:flex-row sm:items-center">
                 <span class="grid h-20 w-20 shrink-0 place-items-center rounded-lg bg-surface text-brand lg:h-[6.5rem] lg:w-[6.5rem]"><svg class="icon icon-lg"><use href="#i-trend"/></svg></span>
                 <div>
                   <h3 class="h6">Девелопмент та управління</h3>
-                  <p class="mt-2 max-w-[25rem] text-mist">Модель проєкту, інвестиції, координація учасників і контроль виконання.</p>
+                  <p class="mt-2 max-w-[25rem] text-mist">План реалізації, бюджет, координація учасників і контроль виконання.</p>
                 </div>
               </li>
               <li class="reveal flex flex-col items-start gap-4 pt-8 sm:flex-row sm:items-center">
                 <span class="grid h-20 w-20 shrink-0 place-items-center rounded-lg bg-surface text-brand lg:h-[6.5rem] lg:w-[6.5rem]"><svg class="icon icon-lg"><use href="#i-landmark"/></svg></span>
                 <div>
                   <h3 class="h6">GR, громади, репутація</h3>
-                  <p class="mt-2 max-w-[25rem] text-mist">Діалог з органами влади, місцевим самоврядуванням і громадами.</p>
+                  <p class="mt-2 max-w-[25rem] text-mist">Супроводжуємо погодження й комунікації з органами влади та громадами.</p>
                 </div>
               </li>
             </ul>
           </div>
         </div>
 
-        <dl id="stats" class="mt-12 grid gap-x-6 gap-y-10 border-t border-white/15 pt-12 sm:grid-cols-2 lg:pt-20 xl:grid-cols-4">
+        <dl id="stats" class="mt-12 grid gap-x-6 gap-y-10 border-t border-white/15 pt-12 md:grid-cols-2 lg:pt-20">
           <div class="reveal stat flex flex-col-reverse justify-end border-l border-white/30 pl-6">
-            <dt class="mt-3 text-mist">Адвокатська практика: нерухомість, земля, інвестиції</dt>
+            <dt class="mt-3 text-mist">Правовий супровід землі та нерухомості</dt>
             <dd class="whitespace-nowrap font-display text-[2rem] leading-none tracking-wide sm:text-[2.5rem]"><span class="stat-num" data-count="20">20</span> <span class="text-xl tracking-normal text-mist">років</span></dd>
           </div>
           <div class="reveal d1 stat flex flex-col-reverse justify-end border-l border-white/30 pl-6">
-            <dt class="mt-3 text-mist">Реалізація: девелопмент, інвестиції, управління. MBA kmbs</dt>
+            <dt class="mt-3 text-mist">Девелопмент та управління проєктами</dt>
             <dd class="whitespace-nowrap font-display text-[2rem] leading-none tracking-wide sm:text-[2.5rem]"><span class="stat-num" data-count="15">15</span> <span class="text-xl tracking-normal text-mist">років</span></dd>
           </div>
           <div class="reveal d2 stat flex flex-col-reverse justify-end border-l border-white/30 pl-6">
-            <dt class="mt-3 text-mist">GR, громади, репутація: влада та самоврядування</dt>
+            <dt class="mt-3 text-mist">Взаємодія з органами влади та громадами</dt>
             <dd class="whitespace-nowrap font-display text-[2rem] leading-none tracking-wide sm:text-[2.5rem]"><span class="stat-num" data-count="25">25</span> <span class="text-xl tracking-normal text-mist">років</span></dd>
           </div>
           <div class="reveal d3 stat flex flex-col-reverse justify-end border-l border-white/30 pl-6">
@@ -667,7 +674,7 @@
             <dd class="whitespace-nowrap font-display text-[2rem] leading-none tracking-wide sm:text-[2.5rem]">UA · EN</dd>
           </div>
         </dl>
-        <p class="reveal mt-10 max-w-[44rem] text-sm text-mist">Це досвід партнерів за відповідними напрямами. Цифри не позначають вік компанії та не підсумовуються. Поточний фокус UGP — український ринок; звернення іноземних інвесторів можливі вже зараз.</p>
+        <p class="reveal mt-10 max-w-[44rem] text-sm text-mist">Це особистий професійний досвід партнерів UGP. Допомагаємо українським та іноземним інвесторам реалізовувати проєкти в Україні.</p>
       </div>
     </section>
 
@@ -678,20 +685,20 @@
         <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div class="reveal">
             <p class="eyebrow">Кейси</p>
-            <h2 class="h2 mt-5 max-w-[12em]">Складні завдання. Керовані рішення.</h2>
+            <h2 class="h2 mt-5 max-w-[18em]">Приклади реалізованих проєктів</h2>
           </div>
-          <p class="body reveal d1 max-w-[19rem]">Проєкти з досвіду партнерів. Назви та адреси не розкриваємо — працюємо на умовах конфіденційності.</p>
+          <p class="body reveal d1 max-w-[19rem]">Приклади з досвіду партнерів UGP. Роль партнера зазначаємо в кожному кейсі.</p>
         </div>
 
         <div class="mt-12 flex flex-col gap-8 lg:mt-20">
-          <article class="card reveal group grid gap-6 p-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
+          <article class="card reveal group grid gap-6 p-5 max-[359px]:p-3 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
             <div class="flex flex-col p-3 lg:p-7">
               <p class="label">Житлова нерухомість</p>
               <h3 class="h4 mt-6 lg:mt-auto lg:pt-10">Відновлення робіт на зупиненому об’єкті</h3>
-              <dl class="mt-5 flex flex-col gap-3 text-[.9375rem]">
-                <div class="grid gap-1 sm:max-lg:grid-cols-[6.5rem_1fr] sm:max-lg:gap-3 xl:grid-cols-[6.5rem_1fr] xl:gap-3"><dt class="text-muted">Завдання</dt><dd>Будівництво зупинене через спір щодо прав на ділянку та неузгоджені дозвільні рішення.</dd></div>
-                <div class="grid gap-1 sm:max-lg:grid-cols-[6.5rem_1fr] sm:max-lg:gap-3 xl:grid-cols-[6.5rem_1fr] xl:gap-3"><dt class="text-muted">Що зробили</dt><dd>Due Diligence активу, стратегія врегулювання спору, регуляторна дорожня карта, координація підрядників.</dd></div>
-                <div class="grid gap-1 sm:max-lg:grid-cols-[6.5rem_1fr] sm:max-lg:gap-3 xl:grid-cols-[6.5rem_1fr] xl:gap-3"><dt class="text-muted">Результат</dt><dd class="font-medium">Спір врегульовано, роботи відновлено за погодженим графіком.</dd></div>
+              <dl class="case-facts">
+                <div><dt>Завдання</dt><dd>Будівництво зупинене через спір щодо прав на ділянку та неузгоджені дозвільні рішення.</dd></div>
+                <div><dt>Що зробили</dt><dd>Due Diligence активу, стратегія врегулювання спору, регуляторна дорожня карта, координація підрядників.</dd></div>
+                <div><dt>Результат</dt><dd>Спір врегульовано, роботи відновлено за погодженим графіком.</dd></div>
               </dl>
               <a href="#contact" data-topic="Відновити зупинений проєкт" class="btn btn-outline mt-8 self-start">Обговорити проєкт <svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </div>
@@ -700,32 +707,32 @@
             </figure>
           </article>
 
-          <article class="card reveal group grid gap-6 p-5 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-10">
+          <article class="card reveal group grid gap-6 p-5 max-[359px]:p-3 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-10">
             <figure class="media aspect-[16/10] lg:aspect-auto lg:min-h-[27.5rem]">
               <img class="lg:absolute lg:inset-0" src="assets/img/case-2.jpg" width="1376" height="768" loading="lazy" alt="Сучасний логістичний комплекс">
             </figure>
             <div class="order-first flex flex-col p-3 lg:order-none lg:p-7">
               <p class="label">Логістика та склади</p>
               <h3 class="h4 mt-6 lg:mt-auto lg:pt-10">Оцінка активу до інвестування</h3>
-              <dl class="mt-5 flex flex-col gap-3 text-[.9375rem]">
-                <div class="grid gap-1 sm:max-lg:grid-cols-[6.5rem_1fr] sm:max-lg:gap-3 xl:grid-cols-[6.5rem_1fr] xl:gap-3"><dt class="text-muted">Завдання</dt><dd>Інвестор розглядав придбання об’єкта й потребував незалежної оцінки ризиків.</dd></div>
-                <div class="grid gap-1 sm:max-lg:grid-cols-[6.5rem_1fr] sm:max-lg:gap-3 xl:grid-cols-[6.5rem_1fr] xl:gap-3"><dt class="text-muted">Що зробили</dt><dd>Перевірили права, обмеження та цільове призначення землі, підготували сценарії реалізації.</dd></div>
-                <div class="grid gap-1 sm:max-lg:grid-cols-[6.5rem_1fr] sm:max-lg:gap-3 xl:grid-cols-[6.5rem_1fr] xl:gap-3"><dt class="text-muted">Результат</dt><dd class="font-medium">Інвестор ухвалив рішення з повною картиною ризиків і планом подальших кроків.</dd></div>
+              <dl class="case-facts">
+                <div><dt>Завдання</dt><dd>Інвестор розглядав придбання об’єкта й потребував незалежної оцінки ризиків.</dd></div>
+                <div><dt>Що зробили</dt><dd>Проаналізували земельні права, цільове призначення, містобудівні та екологічні обмеження.</dd></div>
+                <div><dt>Результат</dt><dd>Інвестор ухвалив рішення з повною картиною ризиків і планом подальших кроків.</dd></div>
               </dl>
-              <a href="#contact" data-topic="Оцінити проєкт до інвестування" class="btn btn-outline mt-8 self-start">Обговорити проєкт <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+              <a href="#contact" data-topic="Перевірити об’єкт до інвестування" class="btn btn-outline mt-8 self-start">Обговорити проєкт <svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </div>
           </article>
 
-          <article class="card reveal group grid gap-6 p-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
+          <article class="card reveal group grid gap-6 p-5 max-[359px]:p-3 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
             <div class="flex flex-col p-3 lg:p-7">
               <p class="label">Девелопмент у громаді</p>
               <h3 class="h4 mt-6 lg:mt-auto lg:pt-10">Підготовка проєкту до запуску</h3>
-              <dl class="mt-5 flex flex-col gap-3 text-[.9375rem]">
-                <div class="grid gap-1 sm:max-lg:grid-cols-[6.5rem_1fr] sm:max-lg:gap-3 xl:grid-cols-[6.5rem_1fr] xl:gap-3"><dt class="text-muted">Завдання</dt><dd>Новий проєкт потребував узгоджень з місцевою владою та підтримки громади.</dd></div>
-                <div class="grid gap-1 sm:max-lg:grid-cols-[6.5rem_1fr] sm:max-lg:gap-3 xl:grid-cols-[6.5rem_1fr] xl:gap-3"><dt class="text-muted">Що зробили</dt><dd>План взаємодії зі стейкхолдерами, діалог із громадою, супровід регуляторних рішень.</dd></div>
-                <div class="grid gap-1 sm:max-lg:grid-cols-[6.5rem_1fr] sm:max-lg:gap-3 xl:grid-cols-[6.5rem_1fr] xl:gap-3"><dt class="text-muted">Результат</dt><dd class="font-medium">Проєкт отримав зрозумілу позицію в громаді та узгоджений план запуску.</dd></div>
+              <dl class="case-facts">
+                <div><dt>Завдання</dt><dd>Новий проєкт потребував узгоджень з місцевою владою та підтримки громади.</dd></div>
+                <div><dt>Що зробили</dt><dd>План взаємодії зі стейкхолдерами, діалог із громадою, супровід регуляторних рішень.</dd></div>
+                <div><dt>Результат</dt><dd>Проєкт отримав зрозумілу позицію в громаді та узгоджений план запуску.</dd></div>
               </dl>
-              <a href="#contact" data-topic="Підготувати до запуску" class="btn btn-outline mt-8 self-start">Обговорити проєкт <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+              <a href="#contact" data-topic="Підготувати проєкт до запуску" class="btn btn-outline mt-8 self-start">Обговорити проєкт <svg class="icon"><use href="#i-arrow-right"/></svg></a>
             </div>
             <figure class="media aspect-[16/10] lg:aspect-auto lg:min-h-[27.5rem]">
               <img class="lg:absolute lg:inset-0" src="assets/img/case-3.jpg" width="1376" height="768" loading="lazy" alt="Невелике місто та ділянка, підготовлена під забудову">
@@ -796,7 +803,7 @@
       <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/60 via-navy/40 to-navy/60" aria-hidden="true"></div>
       <div class="wrap flex min-h-[28.75rem] flex-col items-center justify-center py-20 text-center">
         <h2 id="cta2-title" class="h2 reveal">Обговорімо ваш проєкт</h2>
-        <p class="reveal d1 mt-6 max-w-[28rem] text-page/75">Почнемо з вашого завдання. Визначимо формат роботи та наступні кроки. Первинна консультація — без зобов’язань.</p>
+        <p class="reveal d1 mt-6 max-w-[28rem] text-page/90">Розкажіть про завдання. Визначимо, чим можемо допомогти та з чого почати. Первинна консультація безкоштовна.</p>
         <div class="reveal d2 mt-10 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row sm:flex-wrap">
           <a href="#contact" class="btn btn-light">Надіслати запит <svg class="icon"><use href="#i-arrow-right"/></svg></a>
           <a href="tel:+380952707611" class="btn btn-ghost-light whitespace-nowrap"><svg class="icon"><use href="#i-phone"/></svg> +380 95 270 7611</a>
@@ -808,7 +815,7 @@
     <!-- ============ PARTNERS & CLIENTS ============ -->
     <section id="clients" class="border-y border-line bg-surface py-10" aria-labelledby="clients-title">
       <div class="wrap flex flex-col gap-8 lg:flex-row lg:items-center">
-        <h2 id="clients-title" class="reveal font-display text-xl font-medium leading-snug text-muted lg:w-72 lg:shrink-0 lg:border-r lg:border-line-strong lg:py-3 lg:pr-10">Нам довіряють клієнти та партнери</h2>
+        <h2 id="clients-title" class="reveal font-display text-xl font-medium leading-snug text-muted lg:w-72 lg:shrink-0 lg:border-r lg:border-line-strong lg:py-3 lg:pr-10">Нам довіряють</h2>
         <!-- Логотипи Cyberion та «Громада Захисників» замінити на оригінальні файли після отримання. -->
         <ul class="reveal d1 grid flex-1 gap-x-6 gap-y-8 whitespace-nowrap sm:grid-cols-2 lg:pl-6 xl:grid-cols-4">
           <li>
@@ -836,8 +843,8 @@
     </section>
 
     <!-- ============ TESTIMONIALS ============ -->
-    <!-- ПЛЕЙСХОЛДЕРИ: справжні відгуки додати після погодження з авторами. Вигадані відгуки не публікуємо. -->
-    <section id="testimonials" class="grid lg:grid-cols-[3fr_2fr]" aria-labelledby="testimonials-title">
+    <!-- ПРИХОВАНО (атрибут hidden): показати разом із посиланням у футері, коли з’явиться справжній відгук. -->
+    <section id="testimonials" hidden class="grid lg:grid-cols-[3fr_2fr]" aria-labelledby="testimonials-title">
       <div class="on-navy quote-panel flex min-h-[32rem] flex-col py-14 pr-4 lg:min-h-[44.25rem] lg:pr-14">
         <h2 id="testimonials-title" class="eyebrow">Відгуки</h2>
 
@@ -878,12 +885,12 @@
         <div class="reveal">
           <p class="eyebrow">Зворотний зв’язок</p>
           <h2 class="h2 mt-5">Надішліть запит</h2>
-          <p class="body mt-6">Достатньо імені та номера телефону. Почнемо з вашого завдання, визначимо формат роботи та наступні кроки.</p>
+          <p class="body mt-6">Залиште ім’я та телефон. Зв’яжемося з вами, щоб обговорити завдання і наступні кроки.</p>
           <ul class="mt-10 flex flex-col gap-5">
-            <li class="flex items-start gap-3"><svg class="icon mt-0.5 text-brand"><use href="#i-check"/></svg><span>Первинна консультація — безкоштовна й без зобов’язань</span></li>
-            <li class="flex items-start gap-3"><svg class="icon mt-0.5 text-brand"><use href="#i-check"/></svg><span>Онлайн або офлайн у Києві</span></li>
+            <li class="flex items-start gap-3"><svg class="icon mt-0.5 text-brand"><use href="#i-check"/></svg><span>Первинна консультація безкоштовна.</span></li>
+            <li class="flex items-start gap-3"><svg class="icon mt-0.5 text-brand"><use href="#i-check"/></svg><span>Онлайн або особисто в Києві</span></li>
             <li class="flex items-start gap-3"><svg class="icon mt-0.5 text-brand"><use href="#i-check"/></svg><span>Українською або англійською</span></li>
-            <li class="flex items-start gap-3"><svg class="icon mt-0.5 text-brand"><use href="#i-check"/></svg><span>Конфіденційні документи — після підписання NDA</span></li>
+            <li class="flex items-start gap-3"><svg class="icon mt-0.5 text-brand"><use href="#i-check"/></svg><span>Конфіденційні документи після укладення NDA.</span></li>
           </ul>
         </div>
 
@@ -907,18 +914,18 @@
                   <option value="">Не обрано</option>
                   <optgroup label="Завдання">
                     <option value="Відновити зупинений проєкт">Зупинений проєкт</option>
-                    <option value="Організувати виконання">Виконання проєкту</option>
-                    <option value="Оцінити проєкт до інвестування">Оцінка до інвестицій</option>
-                    <option value="Підготувати до запуску">Підготовка до запуску</option>
+                    <option value="Організувати реалізацію">Реалізація проєкту</option>
+                    <option value="Перевірити об’єкт до інвестування">Перевірка об’єкта</option>
+                    <option value="Підготувати проєкт до запуску">Підготовка до запуску</option>
                   </optgroup>
                   <optgroup label="Напрями роботи">
                     <option value="Комплексна реалізація">Комплексна реалізація</option>
-                    <option value="Due Diligence">Due Diligence</option>
-                    <option value="GR та регуляторні рішення">GR і регуляторика</option>
-                    <option value="Взаємодія з громадами та стейкхолдерами">Робота з громадами</option>
+                    <option value="Перевірка об’єкта перед інвестуванням (Due Diligence)">Due Diligence</option>
+                    <option value="Дозволи та взаємодія з органами влади (GR)">Дозволи та GR</option>
+                    <option value="Громади та репутація">Громади та репутація</option>
                     <option value="Врегулювання спорів та медіація">Спори та медіація</option>
                     <option value="Земельне, аграрне та екологічне право">Земельне право</option>
-                    <option value="Організація девелоперського проєкту">Девелопмент</option>
+                    <option value="Управління девелоперським проєктом">Девелопмент</option>
                   </optgroup>
                 </select>
                 <svg class="icon pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted"><use href="#i-chevron"/></svg>
@@ -979,7 +986,7 @@
         <div class="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-[1fr_1fr_1.15fr_1.35fr]">
           <nav aria-label="Розділи сайту">
             <h2 class="text-sm font-medium">Послуги</h2>
-            <ul class="mt-3 flex flex-col text-page/85">
+            <ul class="mt-3 flex flex-col text-page/95">
               <li><a class="inline-block py-2 hover:text-white hover:underline active:opacity-70" href="#services">Напрями роботи</a></li>
               <li><a class="inline-block py-2 hover:text-white hover:underline active:opacity-70" href="#approach">Підхід</a></li>
               <li><a class="inline-block py-2 hover:text-white hover:underline active:opacity-70" href="#process-title">Етапи роботи</a></li>
@@ -988,10 +995,9 @@
           </nav>
           <nav aria-label="Про компанію">
             <h2 class="text-sm font-medium">Компанія</h2>
-            <ul class="mt-3 flex flex-col text-page/85">
+            <ul class="mt-3 flex flex-col text-page/95">
               <li><a class="inline-block py-2 hover:text-white hover:underline active:opacity-70" href="#about">Про нас</a></li>
               <li><a class="inline-block py-2 hover:text-white hover:underline active:opacity-70" href="#clients">Клієнти</a></li>
-              <li><a class="inline-block py-2 hover:text-white hover:underline active:opacity-70" href="#testimonials">Відгуки</a></li>
             </ul>
           </nav>
           <div class="max-md:col-span-2">
@@ -1009,7 +1015,7 @@
             <h2 class="text-sm font-medium">Формат</h2>
             <ul class="mt-3 flex flex-col text-mist">
               <li class="py-2">Київ, Україна</li>
-              <li class="py-2">Онлайн та офлайн</li>
+              <li class="py-2">Онлайн або особисто</li>
               <li class="py-2">Українська та англійська</li>
             </ul>
           </div>
@@ -1101,30 +1107,47 @@
         return false;
       }
       function restore(b) { b.nodes.forEach(function (n, i) { if (n.nodeValue !== b.orig[i]) n.nodeValue = b.orig[i]; }); }
+      /* Bind lone words to a neighbour; true when the block ends with no single-word line */
+      function solve(b) {
+        for (var pass = 0; pass < 10; pass++) {
+          var lines = linesOf(b);
+          if (lines.length < 2) return true;
+          var flat = [], target = null;
+          lines.forEach(function (l, li) {
+            l.words.forEach(function (w) { w.line = li; flat.push(w); });
+            var real = l.words.filter(function (w) { return WORD.test(w.text); });
+            if (!target && real.length === 1) target = { line: li };
+          });
+          if (!target) return true;
+          var idx = flat.map(function (w) { return w.line; });
+          var first = idx.indexOf(target.line), lastI = idx.lastIndexOf(target.line);
+          var ok = target.line > 0 ? bind(flat[first - 1], flat[first])
+                                   : lastI < flat.length - 1 && bind(flat[lastI], flat[lastI + 1]);
+          if (!ok) return false;
+          var cs = getComputedStyle(b.el), box = b.el.getBoundingClientRect();
+          var limit = box.right - parseFloat(cs.paddingRight) - parseFloat(cs.borderRightWidth) + 1;
+          if (linesOf(b).some(function (l) { return l.words[l.words.length - 1].right > limit; })) { restore(b); return false; }
+        }
+        return false;
+      }
       function fixLoneWords() {
         textBlocks.forEach(function (b) {
           restore(b);
+          b.el.style.fontSize = '';
           if (!b.el.offsetParent && getComputedStyle(b.el).position !== 'fixed') return;   /* not rendered */
-          for (var pass = 0; pass < 10; pass++) {
-            var lines = linesOf(b);
-            if (lines.length < 2) return;
-            var flat = [], target = null;
-            lines.forEach(function (l, li) {
-              l.words.forEach(function (w) { w.line = li; flat.push(w); });
-              var real = l.words.filter(function (w) { return WORD.test(w.text); });
-              if (!target && real.length === 1) target = { line: li };
-            });
-            if (!target) return;
-            var idx = flat.map(function (w) { return w.line; });
-            var first = idx.indexOf(target.line), lastI = idx.lastIndexOf(target.line);
-            var ok = target.line > 0 ? bind(flat[first - 1], flat[first])
-                                     : lastI < flat.length - 1 && bind(flat[lastI], flat[lastI + 1]);
-            if (!ok) return;
-            var cs = getComputedStyle(b.el), box = b.el.getBoundingClientRect();
-            var limit = box.right - parseFloat(cs.paddingRight) - parseFloat(cs.borderRightWidth) + 1;
-            var over = linesOf(b).some(function (l) { return l.words[l.words.length - 1].right > limit; });
-            if (over) { restore(b); return; }   /* cannot be solved by binding: layout decides */
+          if (solve(b)) return;
+          /* Short titles that cannot be re-wrapped (three long words in a narrow column):
+             shrink the type a little, never below 75%, until it sits cleanly. */
+          var words = b.nodes.map(function (n) { return n.nodeValue; }).join(' ').trim().split(/[\s\u00A0]+/).length;
+          if (words > 5) return;
+          var base = parseFloat(getComputedStyle(b.el).fontSize);
+          for (var k = 0.97; k >= 0.75; k -= 0.03) {
+            restore(b);
+            b.el.style.fontSize = (base * k).toFixed(2) + 'px';
+            if (solve(b)) return;
           }
+          restore(b);
+          b.el.style.fontSize = '';
         });
       }
       fixLoneWords();
