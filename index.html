@@ -198,11 +198,10 @@
       /* Case facts: small labels over readable text, rows on hairlines, the result set apart */
       .case-facts { @apply mt-6 flex flex-col; }
       .case-facts > div { @apply border-t border-line-strong py-4; }
-      .case-facts dt { @apply text-[.8125rem] font-medium uppercase text-muted; letter-spacing: .06em; }
+      .case-facts dt { @apply text-[.8125rem] font-semibold uppercase text-brand; letter-spacing: .06em; }
       .case-facts dd { @apply mt-1.5 text-base text-ink; line-height: 1.55; }
       .case-facts > div:last-child { @apply mt-3 rounded-lg border-t-0 bg-white px-4 py-4 shadow-raised sm:px-5; }
       @media (max-width: 359px) { .case-facts dd { font-size: .9375rem; } }
-      .case-facts > div:last-child dt { @apply text-brand; }
       .case-facts > div:last-child dd { @apply font-medium; }
 
       /* Client logos: supplied artwork is white, shown in one ink tone on the light strip */
