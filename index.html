@@ -8,6 +8,10 @@
   <meta name="theme-color" content="#16202e">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="uk_UA">
+  <meta property="og:locale:alternate" content="en_GB">
+  <link rel="alternate" hreflang="uk" href="https://ugp-jade.vercel.app/">
+  <link rel="alternate" hreflang="en" href="https://ugp-jade.vercel.app/en/">
+  <link rel="alternate" hreflang="x-default" href="https://ugp-jade.vercel.app/">
   <meta property="og:site_name" content="Ukraine Gateway Partners">
   <meta property="og:title" content="UGP — реалізація інвестиційних проєктів в Україні">
   <meta property="og:description" content="Допомагаємо інвесторам і власникам активів реалізувати проєкти. Організовуємо роботи та контролюємо виконання.">
@@ -211,6 +215,26 @@
       .client-link:hover .client-logo { opacity: 1; transform: translateY(-2px); }
       .client-link:active .client-logo { opacity: .6; }
 
+      /* Language switch */
+      .flag { @apply inline-block h-3.5 w-[1.3125rem] shrink-0 overflow-hidden rounded-[3px]; box-shadow: 0 0 0 1px rgba(19,18,16,.12); }
+      .flag svg { @apply block h-full w-full; }
+      .lang { @apply relative; }
+      .lang-btn { @apply flex h-11 items-center gap-2 rounded-lg border border-line-strong bg-white/70 px-3 text-sm font-semibold text-ink hover:border-ink active:bg-surface; }
+      .lang-chev { transition: transform .35s var(--spring); }
+      .lang.is-open .lang-chev { transform: rotate(180deg); }
+      .lang-menu { @apply invisible absolute right-0 top-full z-50 mt-2 w-48 rounded-card border border-line bg-white p-1.5 opacity-0 shadow-float; transform: translateY(-.375rem); transition: opacity .25s var(--ease-out), transform .35s var(--spring), visibility 0s .25s; }
+      .lang.is-open .lang-menu { @apply visible opacity-100; transform: none; transition-delay: 0s; }
+      .lang-item { @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-[.9375rem] font-medium text-ink hover:bg-surface active:bg-surface-deep; }
+      .lang-tick { @apply ml-auto text-brand opacity-0; }
+      .lang-item[aria-current] .lang-tick { @apply opacity-100; }
+      .lang-seg { @apply inline-flex rounded-lg border border-line-strong p-1; }
+      .lang-seg-item { @apply flex min-h-[2.75rem] flex-1 items-center justify-center gap-2.5 rounded-md px-4 text-[.9375rem] font-medium text-muted hover:text-ink active:opacity-70; }
+      .lang-seg-item[aria-current] { @apply bg-white text-ink shadow-raised; }
+      .mobile-menu .lang-seg { @apply flex w-full; }
+      .lang-seg-dark { @apply border-white/25; }
+      .lang-seg-dark .lang-seg-item { @apply min-h-[2.25rem] px-3 text-sm text-mist hover:text-white; }
+      .lang-seg-dark .lang-seg-item[aria-current] { @apply bg-white/15 text-white shadow-none; }
+
       /* Header phones: stacked, each one tap to call */
       .header-phone { @apply flex items-center gap-1.5 whitespace-nowrap py-1 text-[.9375rem] font-medium leading-tight tabular-nums text-ink hover:text-brand active:opacity-70; }
 
@@ -263,6 +287,8 @@
   <!-- Icon sprite -->
   <svg class="absolute h-0 w-0" aria-hidden="true" focusable="false">
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="flag-ua" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid slice"><rect width="3" height="1" fill="#0057B7"/><rect y="1" width="3" height="1" fill="#FFD700"/></symbol>
+    <symbol id="flag-gb" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"><clipPath id="gb-clip"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#gb-clip)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></symbol>
     <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></symbol>
     <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
@@ -302,7 +328,7 @@
         <svg class="logo-svg hidden h-9 w-[14.59rem] sm:block" viewBox="13.85 17.24 458.82 70.76" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20 18.7695V69.5886C20 76.3584 25.488 81.8465 32.2579 81.8465H76.5649V41.6253M42.8558 60.7783V38.9439C42.8558 32.1741 48.3438 26.6861 55.1137 26.6861H84.2261" fill="none" stroke="currentColor" stroke-width="12.3077"/><path d="M120.898 56.2001C117.275 56.2001 114.297 55.5005 111.965 54.1013C109.633 52.6662 107.911 50.6571 106.799 48.074C105.687 45.4909 105.131 42.4414 105.131 38.9255V17.7225H111.858V39.087C111.858 41.0243 112.127 42.836 112.665 44.5222C113.239 46.1726 114.19 47.5 115.517 48.5045C116.88 49.5091 118.71 50.0114 121.006 50.0114C123.338 50.0114 125.132 49.5091 126.388 48.5045C127.679 47.4641 128.576 46.1188 129.078 44.4684C129.616 42.8181 129.886 41.0243 129.886 39.087V17.7225H136.666V38.9255C136.666 42.4055 136.11 45.4371 134.998 48.0202C133.886 50.6033 132.182 52.6124 129.886 54.0475C127.589 55.4825 124.594 56.2001 120.898 56.2001ZM161.387 56.2001C157.513 56.2001 154.23 55.3928 151.539 53.7784C148.848 52.1281 146.804 49.8499 145.404 46.9439C144.041 44.002 143.359 40.6117 143.359 36.7729C143.359 33.8669 143.736 31.23 144.489 28.8622C145.279 26.4943 146.427 24.4493 147.934 22.7273C149.476 20.9693 151.36 19.6239 153.584 18.6912C155.809 17.7225 158.374 17.2382 161.28 17.2382C164.114 17.2382 166.643 17.7046 168.868 18.6373C171.128 19.5343 172.975 20.8617 174.411 22.6196C175.881 24.3776 176.868 26.5302 177.37 29.0774H170.428C170.141 27.8576 169.585 26.8351 168.76 26.01C167.971 25.1848 166.966 24.557 165.746 24.1265C164.527 23.6959 163.127 23.4807 161.549 23.4807C159.504 23.4807 157.764 23.8394 156.329 24.557C154.894 25.2745 153.728 26.2611 152.831 27.5168C151.934 28.7366 151.27 30.1537 150.84 31.7681C150.445 33.3467 150.248 35.0329 150.248 36.8267C150.248 39.1587 150.624 41.3292 151.378 43.3383C152.167 45.3474 153.387 46.9618 155.037 48.1816C156.723 49.3656 158.912 49.9575 161.603 49.9575C163.504 49.9575 165.172 49.6346 166.607 48.9889C168.078 48.3431 169.226 47.4103 170.052 46.1905C170.913 44.9348 171.379 43.3921 171.451 41.5624H160.365V35.7504H178.231V38.2259C178.231 41.9212 177.586 45.1142 176.294 47.8049C175.002 50.4957 173.101 52.5765 170.59 54.0475C168.114 55.4825 165.047 56.2001 161.387 56.2001ZM185.149 55.7695V17.7225H199.463C202.334 17.7225 204.809 18.1709 206.89 19.0679C209.007 19.9289 210.639 21.3101 211.787 23.2116C212.971 25.1131 213.563 27.6065 213.563 30.6919C213.563 33.6337 212.917 36.0913 211.626 38.0645C210.334 40.0377 208.576 41.5266 206.352 42.5311C204.127 43.4998 201.58 43.9841 198.71 43.9841H191.875V55.7695H185.149ZM191.875 37.9568H198.602C201.078 37.9568 203.069 37.3649 204.576 36.181C206.083 34.997 206.836 33.1315 206.836 30.5842C206.836 28.3599 206.208 26.6916 204.952 25.5794C203.697 24.4314 201.759 23.8574 199.14 23.8574H191.875V37.9568Z"/><path d="M108.485 86.184C107.301 86.184 106.265 85.9585 105.377 85.5074C104.503 85.0423 103.826 84.3869 103.347 83.5413C102.882 82.6956 102.649 81.6949 102.649 80.5392V70.8141H104.933V80.5392C104.933 81.6808 105.243 82.5617 105.863 83.1819C106.483 83.7879 107.357 84.091 108.485 84.091C109.612 84.091 110.486 83.7879 111.106 83.1819C111.726 82.5617 112.036 81.6808 112.036 80.5392V70.8141H114.32V80.5392C114.32 81.6949 114.08 82.6956 113.601 83.5413C113.136 84.3869 112.466 85.0423 111.592 85.5074C110.718 85.9585 109.683 86.184 108.485 86.184ZM120.606 85.8457V70.8352H122.889V78.0022L129.21 70.8352H131.98L126.229 77.3891L132.36 85.8457H129.675L124.707 78.9959L122.889 81.0254V85.8457H120.606ZM137.233 85.8457V70.8352H143.216C144.287 70.8352 145.211 71.0185 145.986 71.3849C146.761 71.7514 147.36 72.2728 147.783 72.9494C148.206 73.6259 148.417 74.4293 148.417 75.3595C148.417 76.036 148.262 76.6421 147.952 77.1777C147.656 77.7133 147.254 78.1431 146.747 78.4673C146.254 78.7774 145.725 78.9536 145.161 78.9959L145.056 78.8056C146 78.8056 146.733 79.024 147.254 79.461C147.776 79.8838 148.079 80.5533 148.163 81.4694L148.565 85.8457H146.261L145.901 81.7654C145.859 81.1593 145.655 80.7154 145.288 80.4335C144.922 80.1375 144.323 79.9895 143.491 79.9895H139.516V85.8457H137.233ZM139.516 77.8965H143.259C144.118 77.8965 144.795 77.6851 145.288 77.2622C145.796 76.8253 146.049 76.2122 146.049 75.4229C146.049 74.6196 145.796 74.0065 145.288 73.5836C144.781 73.1467 144.041 72.9282 143.068 72.9282H139.516V77.8965ZM152.961 85.8457L158.373 70.8352H161.269L166.682 85.8457H164.25L162.876 81.9345H156.745L155.392 85.8457H152.961ZM157.464 79.8627H162.179L159.811 73.0128L157.464 79.8627ZM171.438 85.8457V70.8352H173.721V85.8457H171.438ZM179.951 85.8457V70.8352H182.848L189.782 83.0762V70.8352H192.066V85.8457H189.063L182.235 73.8796V85.8457H179.951ZM198.293 85.8457V70.8352H208.06V72.9282H200.576V77.3045H207.806V79.3341H200.576V83.7527H208.229V85.8457H198.293ZM228.135 86.184C226.711 86.184 225.492 85.8528 224.477 85.1903C223.462 84.5138 222.687 83.5906 222.152 82.4208C221.616 81.2369 221.348 79.8838 221.348 78.3616C221.348 76.8535 221.616 75.5075 222.152 74.3236C222.701 73.1397 223.491 72.2094 224.519 71.5329C225.548 70.8423 226.782 70.497 228.219 70.497C229.445 70.497 230.481 70.7154 231.327 71.1523C232.187 71.5893 232.863 72.1883 233.357 72.9494C233.864 73.7105 234.216 74.5773 234.414 75.5498L232.025 75.6766C231.856 74.7605 231.475 74.0205 230.883 73.4568C230.291 72.8789 229.403 72.59 228.219 72.59C227.176 72.59 226.324 72.8507 225.661 73.3722C224.999 73.8937 224.505 74.5914 224.181 75.4652C223.871 76.3391 223.716 77.3045 223.716 78.3616C223.716 79.461 223.871 80.4405 224.181 81.3003C224.505 82.16 224.999 82.8436 225.661 83.351C226.338 83.8443 227.197 84.091 228.24 84.091C229.058 84.091 229.763 83.9148 230.354 83.5624C230.946 83.2101 231.405 82.7309 231.729 82.1248C232.067 81.5187 232.25 80.8493 232.278 80.1164H228.261V78.1925H234.456V85.8457H232.891L232.743 82.4631L233.039 82.7168C232.884 83.3933 232.567 83.9923 232.088 84.5138C231.609 85.0353 231.024 85.444 230.333 85.74C229.657 86.036 228.924 86.184 228.135 86.184ZM238.872 85.8457L244.284 70.8352H247.181L252.593 85.8457H250.162L248.788 81.9345H242.657L241.303 85.8457H238.872ZM243.375 79.8627H248.09L245.722 73.0128L243.375 79.8627ZM258.886 85.8457V72.9282H254.278V70.8352H265.779V72.9282H261.17V85.8457H258.886ZM270.26 85.8457V70.8352H280.028V72.9282H272.544V77.3045H279.774V79.3341H272.544V83.7527H280.197V85.8457H270.26ZM289.332 85.8457L285.357 70.8352H287.788L290.706 82.6956L293.623 70.8352H295.949L298.866 82.6956L301.763 70.8352H304.236L300.241 85.8457H297.577L294.786 74.8944L291.995 85.8457H289.332ZM306.084 85.8457L311.496 70.8352H314.393L319.805 85.8457H317.374L315.999 81.9345H309.868L308.515 85.8457H306.084ZM310.587 79.8627H315.302L312.934 73.0128L310.587 79.8627ZM326.765 85.8457V79.8204L321.501 70.8352H324.123L327.907 77.5371L331.713 70.8352H334.334L329.049 79.8204V85.8457H326.765ZM347.059 85.8457V70.8352H352.662C354.381 70.8352 355.72 71.251 356.679 72.0826C357.637 72.9 358.116 74.0417 358.116 75.5075C358.116 76.48 357.898 77.3257 357.461 78.0445C357.024 78.7492 356.397 79.2918 355.579 79.6724C354.776 80.0388 353.804 80.2221 352.662 80.2221H349.343V85.8457H347.059ZM349.343 78.1502H352.599C353.627 78.1502 354.41 77.9317 354.945 77.4948C355.481 77.0438 355.749 76.3814 355.749 75.5075C355.749 74.6477 355.481 74.0065 354.945 73.5836C354.41 73.1467 353.627 72.9282 352.599 72.9282H349.343V78.1502ZM360.929 85.8457L366.341 70.8352H369.238L374.65 85.8457H372.219L370.844 81.9345H364.713L363.36 85.8457H360.929ZM365.432 79.8627H370.147L367.779 73.0128L365.432 79.8627ZM379.406 85.8457V70.8352H385.389C386.46 70.8352 387.383 71.0185 388.159 71.3849C388.934 71.7514 389.533 72.2728 389.956 72.9494C390.378 73.6259 390.59 74.4293 390.59 75.3595C390.59 76.036 390.435 76.6421 390.125 77.1777C389.829 77.7133 389.427 78.1431 388.92 78.4673C388.426 78.7774 387.898 78.9536 387.334 78.9959L387.228 78.8056C388.173 78.8056 388.906 79.024 389.427 79.461C389.949 79.8838 390.252 80.5533 390.336 81.4694L390.738 85.8457H388.433L388.074 81.7654C388.032 81.1593 387.827 80.7154 387.461 80.4335C387.094 80.1375 386.495 79.9895 385.664 79.9895H381.689V85.8457H379.406ZM381.689 77.8965H385.431C386.291 77.8965 386.968 77.6851 387.461 77.2622C387.968 76.8253 388.222 76.2122 388.222 75.4229C388.222 74.6196 387.968 74.0065 387.461 73.5836C386.953 73.1467 386.214 72.9282 385.241 72.9282H381.689V77.8965ZM399.388 85.8457V72.9282H394.779V70.8352H406.28V72.9282H401.671V85.8457H399.388ZM410.761 85.8457V70.8352H413.658L420.592 83.0762V70.8352H422.876V85.8457H419.873L413.045 73.8796V85.8457H410.761ZM429.103 85.8457V70.8352H438.87V72.9282H431.386V77.3045H438.616V79.3341H431.386V83.7527H439.039V85.8457H429.103ZM444.78 85.8457V70.8352H450.763C451.835 70.8352 452.758 71.0185 453.533 71.3849C454.308 71.7514 454.907 72.2728 455.33 72.9494C455.753 73.6259 455.964 74.4293 455.964 75.3595C455.964 76.036 455.809 76.6421 455.499 77.1777C455.203 77.7133 454.801 78.1431 454.294 78.4673C453.801 78.7774 453.272 78.9536 452.708 78.9959L452.603 78.8056C453.547 78.8056 454.28 79.024 454.801 79.461C455.323 79.8838 455.626 80.5533 455.71 81.4694L456.112 85.8457H453.808L453.448 81.7654C453.406 81.1593 453.202 80.7154 452.835 80.4335C452.469 80.1375 451.87 79.9895 451.038 79.9895H447.064V85.8457H444.78ZM447.064 77.8965H450.806C451.665 77.8965 452.342 77.6851 452.835 77.2622C453.343 76.8253 453.596 76.2122 453.596 75.4229C453.596 74.6196 453.343 74.0065 452.835 73.5836C452.328 73.1467 451.588 72.9282 450.615 72.9282H447.064V77.8965ZM467.212 86.184C466.014 86.184 464.971 85.9655 464.083 85.5286C463.21 85.0917 462.519 84.4856 462.011 83.7104C461.504 82.9352 461.208 82.0332 461.124 81.0043L463.47 80.8563C463.569 81.561 463.773 82.16 464.083 82.6533C464.393 83.1325 464.809 83.499 465.331 83.7527C465.866 83.9923 466.508 84.1121 467.255 84.1121C467.903 84.1121 468.453 84.0346 468.904 83.8795C469.369 83.7104 469.721 83.4638 469.961 83.1396C470.2 82.8154 470.32 82.4208 470.32 81.9557C470.32 81.5328 470.214 81.1593 470.003 80.8352C469.806 80.4969 469.418 80.1939 468.84 79.9261C468.276 79.6442 467.445 79.3694 466.345 79.1016C465.147 78.8056 464.189 78.4814 463.47 78.129C462.751 77.7767 462.23 77.3398 461.906 76.8183C461.596 76.2827 461.441 75.6273 461.441 74.8521C461.441 73.9924 461.645 73.2383 462.054 72.59C462.477 71.9275 463.076 71.4131 463.851 71.0466C464.626 70.6802 465.556 70.497 466.641 70.497C467.783 70.497 468.756 70.7084 469.559 71.1312C470.376 71.554 471.018 72.1319 471.483 72.8648C471.962 73.5977 472.258 74.4363 472.371 75.3807L470.024 75.5075C469.954 74.9296 469.777 74.4222 469.496 73.9853C469.214 73.5343 468.833 73.189 468.354 72.9494C467.875 72.6957 467.29 72.5688 466.599 72.5688C465.725 72.5688 465.035 72.7732 464.527 73.1819C464.034 73.5766 463.787 74.1051 463.787 74.7675C463.787 75.1904 463.886 75.5498 464.083 75.8458C464.295 76.1277 464.661 76.3743 465.183 76.5857C465.718 76.7971 466.472 77.0226 467.445 77.2622C468.742 77.5582 469.77 77.9247 470.532 78.3616C471.307 78.7844 471.856 79.2848 472.181 79.8627C472.505 80.4405 472.667 81.0959 472.667 81.8288C472.667 82.7168 472.434 83.4919 471.969 84.1544C471.518 84.8027 470.884 85.3031 470.066 85.6554C469.249 86.0078 468.298 86.184 467.212 86.184Z"/></svg>
       </a>
 
-      <nav class="hidden items-center gap-6 lg:flex xl:gap-8" aria-label="Основна навігація">
+      <nav id="main-nav" class="hidden items-center gap-6 lg:flex xl:gap-8" aria-label="Основна навігація">
         <a class="nav-link" href="#services">Послуги</a>
         <a class="nav-link" href="#approach">Підхід</a>
         <a class="nav-link" href="#about">Про нас</a>
@@ -316,6 +342,15 @@
           <a class="header-phone" href="tel:+380674624144"><svg class="icon h-4 w-4 text-brand"><use href="#i-phone"/></svg>+380 67 462 41 44</a>
         </div>
         <a href="tel:+380952707611" class="arrow-btn min-[360px]:hidden" aria-label="Зателефонувати: +380 95 270 7611"><svg class="icon"><use href="#i-phone"/></svg></a>
+        <div class="lang hidden lg:block" data-lang-switch>
+          <button type="button" class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Мова сайту: українська. Змінити мову">
+            <span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-ua"/></svg></span><span class="lang-code">UA</span><svg class="icon lang-chev h-4 w-4"><use href="#i-chevron"/></svg>
+          </button>
+          <ul id="lang-menu" class="lang-menu">
+            <li><a class="lang-item" href="./" hreflang="uk" lang="uk" data-lang="uk" aria-current="true"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-ua"/></svg></span><span>Українська</span><svg class="icon lang-tick h-4 w-4"><use href="#i-check"/></svg></a></li>
+            <li><a class="lang-item" href="en/" hreflang="en" lang="en" data-lang="en"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-gb"/></svg></span><span>English</span><svg class="icon lang-tick h-4 w-4"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </div>
         <a href="#contact" class="btn btn-primary hidden xl:inline-flex">Обговорити проєкт</a>
         <button type="button" id="menu-toggle" class="arrow-btn lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити меню">
           <svg class="icon" data-open><use href="#i-menu"/></svg>
@@ -327,6 +362,10 @@
     <!-- Full-screen menu: sits under the header bar and covers the page -->
     <div id="mobile-menu" class="mobile-menu lg:hidden">
       <nav class="wrap flex min-h-full flex-col pb-8 pt-2" aria-label="Мобільна навігація">
+        <div class="lang-seg mb-2 mt-3" role="group" aria-label="Мова сайту">
+          <a class="lang-seg-item" href="./" hreflang="uk" lang="uk" data-lang="uk" aria-current="true"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-ua"/></svg></span>Українська</a>
+          <a class="lang-seg-item" href="en/" hreflang="en" lang="en" data-lang="en"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-gb"/></svg></span>English</a>
+        </div>
         <a class="menu-link" href="#services">Послуги</a>
         <a class="menu-link" href="#approach">Підхід</a>
         <a class="menu-link" href="#about">Про нас</a>
@@ -1029,7 +1068,13 @@
       <div class="mt-16 flex flex-col gap-3 border-t border-white/15 pt-8 text-sm text-mist sm:flex-row sm:items-center sm:justify-between lg:mt-24">
         <p>© <span id="year">2026</span> Ukraine Gateway Partners</p>
         <!-- Текст політики конфіденційності додати після надання клієнтом. -->
-        <a id="privacy" class="inline-block py-2.5 hover:text-white hover:underline active:opacity-70" href="#privacy">Політика конфіденційності</a>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div class="lang-seg lang-seg-dark" role="group" aria-label="Мова сайту">
+            <a class="lang-seg-item" href="./" hreflang="uk" lang="uk" data-lang="uk" aria-current="true"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-ua"/></svg></span>UA</a>
+            <a class="lang-seg-item" href="en/" hreflang="en" lang="en" data-lang="en"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-gb"/></svg></span>EN</a>
+          </div>
+          <a id="privacy" class="inline-block py-2.5 hover:text-white hover:underline active:opacity-70" href="#privacy">Політика конфіденційності</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1044,7 +1089,7 @@
 
       /* Typography, step 1 (static): short prepositions, conjunctions and particles never end
          a line, numbers stay with their unit, and a dash never starts a line. */
-      var SHORT = /^(а|і|й|та|у|в|з|із|зі|зо|до|на|за|по|під|над|при|про|для|без|від|між|або|чи|не|ні|що|як|це|те|би|б|же|ж|бо|але|ще|вже|уже|ви|ми|a|an|the|of|or|and|to|in)$/i;
+      var SHORT = /^(а|і|й|та|у|в|з|із|зі|зо|до|на|за|по|під|над|при|про|для|без|від|між|або|чи|не|ні|що|як|це|те|би|б|же|ж|бо|але|ще|вже|уже|ви|ми|a|an|the|of|or|and|to|in|for|with|on|at|by|as|we|our|is|no|not)$/i;
       var NBSP = ' ', WORD = /[A-Za-zЀ-ӿ0-9]/;
       function bare(w) { return w.replace(/^[«„“"'(\[]+|[.,;:!?»”"')\]]+$/g, ''); }
       function glueAfter(w) { var b = bare(w); return SHORT.test(b) || /^[\d.,]+$/.test(b); }
@@ -1194,7 +1239,7 @@
       }
 
       /* Active nav link */
-      var navLinks = $$('header nav[aria-label="Основна навігація"] a');
+      var navLinks = $$('#main-nav a');
       if ('IntersectionObserver' in window) {
         var spy = new IntersectionObserver(function (entries) {
           entries.forEach(function (en) {
@@ -1262,7 +1307,12 @@
         window.addEventListener('scroll', function () { if (pinned && !ticking) { ticking = true; requestAnimationFrame(render); } }, { passive: true });
         track.addEventListener('scroll', function () { if (!pinned) show(track.scrollLeft / Math.max(1, track.scrollWidth - track.clientWidth)); }, { passive: true });
         window.addEventListener('resize', layout);
-        window.addEventListener('load', layout);
+        window.addEventListener('load', function () {
+          layout();
+          /* the pinned section changes height after load: land on the requested section again */
+          var t = location.hash && document.getElementById(location.hash.slice(1));
+          if (t) { var b = document.documentElement.style.scrollBehavior; document.documentElement.style.scrollBehavior = 'auto'; t.scrollIntoView(); document.documentElement.style.scrollBehavior = b; }
+        });
         if (reduce.addEventListener) reduce.addEventListener('change', layout);
         layout();
       })();
@@ -1320,6 +1370,24 @@
             if (el) stat.addEventListener('mouseenter', function () { if (list.classList.contains('stats-run')) count(el, 0); });
           });
         }
+      })();
+
+      /* Language switch: dropdown in the header; every language link keeps the current section */
+      (function () {
+        var sw = $('[data-lang-switch]');
+        if (sw) {
+          var btn = $('.lang-btn', sw);
+          var set = function (open) { sw.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', String(open)); };
+          btn.addEventListener('click', function (e) { e.stopPropagation(); set(!sw.classList.contains('is-open')); });
+          document.addEventListener('click', function (e) { if (!sw.contains(e.target)) set(false); });
+          document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sw.classList.contains('is-open')) { set(false); btn.focus(); } });
+        }
+        $$('a[data-lang]').forEach(function (a) {
+          a.addEventListener('click', function () {
+            if (a.hasAttribute('aria-current') || !location.hash) return;
+            a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash);
+          });
+        });
       })();
 
       /* Testimonials */

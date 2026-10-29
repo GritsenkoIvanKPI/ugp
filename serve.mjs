@@ -25,7 +25,8 @@ const MIME = {
 
 http.createServer((req, res) => {
   let urlPath = req.url.split('?')[0];
-  if (urlPath === '/') urlPath = '/index.html';
+  urlPath = decodeURIComponent(urlPath);
+  if (urlPath.endsWith('/')) urlPath += 'index.html';   // /en/ -> /en/index.html, like the live host
   const filePath = path.join(__dirname, urlPath);
   const ext = path.extname(filePath).toLowerCase();
   const mime = MIME[ext] || 'application/octet-stream';
