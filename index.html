@@ -222,7 +222,7 @@
       .lang-btn { @apply flex h-11 items-center gap-2 rounded-lg border border-line-strong bg-white/70 px-3 text-sm font-semibold text-ink hover:border-ink active:bg-surface; }
       .lang-chev { transition: transform .35s var(--spring); }
       .lang.is-open .lang-chev { transform: rotate(180deg); }
-      .lang-menu { @apply invisible absolute right-0 top-full z-50 mt-2 w-48 rounded-card border border-line bg-white p-1.5 opacity-0 shadow-float; transform: translateY(-.375rem); transition: opacity .25s var(--ease-out), transform .35s var(--spring), visibility 0s .25s; }
+      .lang-menu { @apply invisible absolute right-0 top-full z-50 mt-2 w-32 rounded-card border border-line bg-white p-1.5 opacity-0 shadow-float; transform: translateY(-.375rem); transition: opacity .25s var(--ease-out), transform .35s var(--spring), visibility 0s .25s; }
       .lang.is-open .lang-menu { @apply visible opacity-100; transform: none; transition-delay: 0s; }
       .lang-item { @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-[.9375rem] font-medium text-ink hover:bg-surface active:bg-surface-deep; }
       .lang-tick { @apply ml-auto text-brand opacity-0; }
@@ -347,8 +347,8 @@
             <span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-ua"/></svg></span><span class="lang-code">UA</span><svg class="icon lang-chev h-4 w-4"><use href="#i-chevron"/></svg>
           </button>
           <ul id="lang-menu" class="lang-menu">
-            <li><a class="lang-item" href="./" hreflang="uk" lang="uk" data-lang="uk" aria-current="true"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-ua"/></svg></span><span>Українська</span><svg class="icon lang-tick h-4 w-4"><use href="#i-check"/></svg></a></li>
-            <li><a class="lang-item" href="en/" hreflang="en" lang="en" data-lang="en"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-gb"/></svg></span><span>English</span><svg class="icon lang-tick h-4 w-4"><use href="#i-check"/></svg></a></li>
+            <li><a class="lang-item" href="./" hreflang="uk" lang="uk" data-lang="uk" aria-label="Українська" aria-current="true"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-ua"/></svg></span><span>UA</span><svg class="icon lang-tick h-4 w-4"><use href="#i-check"/></svg></a></li>
+            <li><a class="lang-item" href="en/" hreflang="en" lang="en" data-lang="en" aria-label="English"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-gb"/></svg></span><span>EN</span><svg class="icon lang-tick h-4 w-4"><use href="#i-check"/></svg></a></li>
           </ul>
         </div>
         <a href="#contact" class="btn btn-primary hidden xl:inline-flex">Обговорити проєкт</a>
@@ -363,8 +363,8 @@
     <div id="mobile-menu" class="mobile-menu lg:hidden">
       <nav class="wrap flex min-h-full flex-col pb-8 pt-2" aria-label="Мобільна навігація">
         <div class="lang-seg mb-2 mt-3" role="group" aria-label="Мова сайту">
-          <a class="lang-seg-item" href="./" hreflang="uk" lang="uk" data-lang="uk" aria-current="true"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-ua"/></svg></span>Українська</a>
-          <a class="lang-seg-item" href="en/" hreflang="en" lang="en" data-lang="en"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-gb"/></svg></span>English</a>
+          <a class="lang-seg-item" href="./" hreflang="uk" lang="uk" data-lang="uk" aria-label="Українська" aria-current="true"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-ua"/></svg></span>UA</a>
+          <a class="lang-seg-item" href="en/" hreflang="en" lang="en" data-lang="en" aria-label="English"><span class="flag" aria-hidden="true"><svg viewBox="0 0 3 2"><use href="#flag-gb"/></svg></span>EN</a>
         </div>
         <a class="menu-link" href="#services">Послуги</a>
         <a class="menu-link" href="#approach">Підхід</a>
