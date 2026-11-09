@@ -35,13 +35,25 @@ const translateTag = (tag) => tag.replace(
   (m, a, v) => `${a}="${tr(v, 'attribute ' + a)}"`
 );
 
+const seenScript = new Set();
 const translateScript = (code) => {
   if (!CYR.test(code)) return code;
   for (const [uk, en] of Object.entries(JS)) {
-    if (!code.includes(uk)) { missing.push(`script string not found in index.html: ${uk}`); continue; }
+    if (!code.includes(uk)) continue;
+    seenScript.add(uk);
     code = code.split(uk).join(en);
   }
   return code;
+};
+
+// Structured data (JSON-LD): every Ukrainian string value goes through the text table
+const translateJsonLd = (code) => {
+  const walk = (v) => typeof v === "string" ? tr(v, "structured data").trim()
+    : Array.isArray(v) ? v.map(walk)
+    : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, walk(x)]))
+    : v;
+  const indent = code.match(/\n(\s*)\S/)?.[1] ?? "";
+  return "\n" + JSON.stringify(walk(JSON.parse(code)), null, 2).replace(/^/gm, indent) + "\n  ";
 };
 
 // Walk the document: comments, scripts and styles are copied as they are (scripts get
@@ -55,6 +67,7 @@ for (const m of src.matchAll(re)) {
   pos = m.index + piece.length;
   if (piece.startsWith('<!')) out += piece;      // comments and the doctype are copied as they are
   else if (piece === '<') out += piece;
+  else if (piece.startsWith('<script type="application/ld+json"')) out += piece.replace(/^(<script\b[^>]*>)([\s\S]*?)(<\/script>)$/, (m, o, c, e) => o + translateJsonLd(c) + e);
   else if (piece.startsWith('<script')) out += piece.replace(/^(<script\b[^>]*>)([\s\S]*?)(<\/script>)$/, (m, o, c, e) => o + translateScript(c) + e);
   else if (piece.startsWith('<style')) out += piece;
   else if (piece.startsWith('<')) out += translateTag(piece);
@@ -62,14 +75,24 @@ for (const m of src.matchAll(re)) {
 }
 
 if (pos !== src.length) throw new Error('scanner stopped before the end of index.html');
+for (const uk of Object.keys(JS)) if (!seenScript.has(uk)) missing.push(`script string not found in index.html: ${uk}`);
 
 // Page-level differences between the two languages
 const swaps = [
   [/<html lang="uk">/, '<html lang="en">'],
   [/<meta property="og:locale" content="uk_UA">\n(\s*)<meta property="og:locale:alternate" content="en_GB">/,
    '<meta property="og:locale" content="en_GB">\n$1<meta property="og:locale:alternate" content="uk_UA">'],
-  // assets live one level up
-  [/(\s(?:src|content)=")assets\//g, '$1../assets/'],
+  // assets live one level up (src, srcset, href)
+  [/(\s(?:src|srcset|href|content)=")([^"]*)"/g, (m, a, v) => a + v.replace(/(^|,\s*)assets\//g, "$1../assets/") + '"'],
+  // this page's own address (hreflang links keep pointing at both pages)
+  [/(<link rel="canonical" href="https:\/\/[^"\/]+)\/"/, '$1/en/"'],
+  [/(<meta property="og:url" content="https:\/\/[^"\/]+)\/"/, '$1/en/"'],
+  [/("@id": "https:\/\/[^"\/]+)\/#webpage",(\s*)"url": "(https:\/\/[^"\/]+)\/"/, '$1/en/#webpage",$2"url": "$3/en/"'],
+  [/("inLanguage": )"uk"/, '$1"en"'],
+  // English social image and Latin fonts first
+  [/og-uk\.jpg/g, 'og-en.jpg'],
+  [/\n\s*<link rel="preload" href="\.\.\/assets\/fonts\/geist-cyrillic\.woff2"[^>]*>/, ''],
+  [/onest-cyrillic\.woff2/, 'onest-latin.woff2'],
   // the current-language badge in the header button
   [/(<button[^>]*class="lang-btn"[\s\S]*?)#flag-ua([\s\S]*?)<span class="lang-code">UA<\/span>/, '$1#flag-gb$2<span class="lang-code">EN</span>'],
 ];
@@ -78,6 +101,7 @@ for (const [from, to] of swaps) {
   from.lastIndex = 0;
   out = out.replace(from, to);
 }
+if (/"(?:\.\.\/)?assets\/fonts\/[\w-]*cyrillic/.test(out.split("</head>")[0].replace(/<style[\s\S]*?<\/style>/g, ""))) missing.push("English page still preloads a Cyrillic font");
 // language links: point each one at the right page and mark English as current
 out = out.replace(/<a ([^>]*?)data-lang="(uk|en)"([^>]*)>/g, (m, a, lang, b) => {
   const attrs = (a + 'data-lang="' + lang + '"' + b).replace(/\s*aria-current="true"/, '').replace(/href="[^"]*"/, `href="${lang === 'uk' ? '../' : './'}"`);
@@ -85,7 +109,7 @@ out = out.replace(/<a ([^>]*?)data-lang="(uk|en)"([^>]*)>/g, (m, a, lang, b) => 
 });
 
 // Anything Ukrainian left in visible text or attributes is a missing translation
-const visible = out.replace(/<!--[\s\S]*?-->/g, '').replace(/<style\b[^>]*>[\s\S]*?<\/style>/g, '').replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, (s) => s.replace(/var SHORT = .*$/m, ''));
+const visible = out.replace(/<!--[\s\S]*?-->/g, '').replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '').replace(/<style\b[^>]*>[\s\S]*?<\/style>/g, '').replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, (s) => s.replace(/var SHORT = .*$/m, ''));
 for (const [piece] of visible.matchAll(/<script\b[^>]*>[\s\S]*?<\/script>|<[^>]+>|[^<]+/g)) {
   if (piece.startsWith('<script')) {
     for (const [q] of piece.matchAll(/'[^'\n]*[Ѐ-ӿ][^'\n]*'/g)) missing.push(`untranslated script text: ${q}`);

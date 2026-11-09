@@ -12,3 +12,7 @@ UGP-materialy-pro-biznes.docx
 CLIENT_BRIEF.md
 1920w light.png
 UGP_коригування тексту .xlsx
+
+# secrets and Vercel CLI link
+.env*
+.vercel

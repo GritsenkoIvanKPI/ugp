@@ -1,0 +1,15 @@
+{
+  "name": "Ukraine Gateway Partners",
+  "short_name": "UGP",
+  "description": "Партнер з реалізації інвестиційних і девелоперських проєктів в Україні.",
+  "lang": "uk",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#fafafa",
+  "theme_color": "#16202e",
+  "icons": [
+    { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

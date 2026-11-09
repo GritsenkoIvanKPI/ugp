@@ -1,0 +1,15 @@
+# Only the site itself is deployed; sources, tooling and notes stay out of the public URL space.
+.gitignore
+*.md
+*.mjs
+*.js
+!api/
+!api/*.js
+src/
+tools/
+i18n/
+Logo 9.svg
+Logo.svg
+*.webp
+!assets/**/*.webp
+temporary screenshots/

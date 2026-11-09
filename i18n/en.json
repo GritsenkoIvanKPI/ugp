@@ -1,12 +1,10 @@
 {
   "_note": "English copy for /en/. Keys are the exact Ukrainian text from index.html (whitespace collapsed). Run `node build-en.mjs` after any change to index.html or this file.",
-
   "text": {
     "UGP — реалізація інвестиційних проєктів в Україні | Ukraine Gateway Partners": "UGP — Investment project delivery in Ukraine | Ukraine Gateway Partners",
     "Ukraine Gateway Partners — партнер з реалізації інвестиційних і девелоперських проєктів в Україні. Due Diligence, дорожня карта, організація та контроль виконання до працюючого активу.": "Ukraine Gateway Partners delivers investment and development projects in Ukraine: due diligence, a delivery roadmap, and managing and overseeing execution through to an operating asset.",
     "UGP — реалізація інвестиційних проєктів в Україні": "UGP — Investment project delivery in Ukraine",
     "Допомагаємо інвесторам і власникам активів реалізувати проєкти. Організовуємо роботи та контролюємо виконання.": "We help investors and asset owners deliver their projects. We organise the work and oversee its execution.",
-
     "Перейти до змісту": "Skip to content",
     "UGP — Ukraine Gateway Partners, на початок": "UGP — Ukraine Gateway Partners, back to top",
     "UGP — Ukraine Gateway Partners, на початок сторінки": "UGP — Ukraine Gateway Partners, back to top",
@@ -24,9 +22,8 @@
     "Відкрити меню": "Open menu",
     "Обговорити проєкт": "Discuss your project",
     "Обговорити": "Discuss",
-    "Мова сайту: українська. Змінити мову": "Site language: English. Change language",
+    "UA — мова сайту: українська. Змінити мову": "EN — site language: English. Change language",
     "Мова сайту": "Site language",
-
     "Реалізація інвестиційних проєктів в&nbsp;Україні": "Delivering investment projects in&nbsp;Ukraine",
     "Напрями роботи": "Our services",
     "Житловий будинок на етапі будівництва з баштовим краном": "Residential building under construction with a tower crane",
@@ -35,7 +32,6 @@
     "Первинна консультація": "Initial consultation",
     "Безкоштовно": "Free of charge",
     "Онлайн або особисто": "Online or in person",
-
     "Комплексна реалізація або окреме завдання": "Full project delivery or a single task",
     "Ведемо проєкт повністю або виконуємо окреме завдання: перевірку об’єкта, земельні й дозвільні питання.": "We run the whole project or take on a single task: property due diligence, land matters or permits.",
     "Основний формат": "Core format",
@@ -68,13 +64,11 @@
     "Плануємо роботи, дозвільні процедури, координуємо проєктування й підрядників. Контролюємо строки та бюджет.": "We plan the works and permit procedures, coordinate design and contractors, and keep the schedule and budget under control.",
     "Погоджений план робіт, строки, бюджет об’єкта.": "An agreed work plan, schedule and project budget.",
     "Усі напрями роботи · 7": "All services · 7",
-
     "Що потрібно для вашого проєкту?": "What does your project need?",
     "Відновити зупинений проєкт": "Restart a stalled project",
     "Організувати реалізацію": "Organise delivery",
     "Перевірити об’єкт до інвестування": "Check a property before investing",
     "Підготувати проєкт до запуску": "Prepare a project for launch",
-
     "Що нас вирізняє": "What sets us apart",
     "Відповідаємо за результат, а&nbsp;не&nbsp;за&nbsp;процес": "We answer for the outcome, not the&nbsp;process",
     "Success fee — винагорода за результат": "Success fee — paid for results",
@@ -86,7 +80,6 @@
     "Одна точка управління": "A single point of management",
     "Організовуємо роботу проєктувальників, підрядників та інших учасників. Контролюємо виконання спільного плану.": "We organise the work of designers, contractors and other participants, and oversee delivery of the shared plan.",
     "Перевірка графіка виконання та контрольних точок проєкту": "Reviewing a project schedule and its checkpoints",
-
     "Як ми працюємо": "How we work",
     "Від первинного аналізу до реалізації проєкту": "From initial analysis to project delivery",
     "Погоджуємо обсяг робіт, строки та результат кожного етапу.": "We agree the scope of work, timeline and outcome of every stage.",
@@ -106,7 +99,6 @@
     "Передача ключів у вестибюлі нової будівлі": "Handing over keys in the lobby of a new building",
     "Передача результату": "Handover",
     "Передаємо документи або об’єкт відповідно до погодженого обсягу робіт.": "We hand over the documents or the property in line with the agreed scope of work.",
-
     "Ваш партнер з реалізації проєктів в Україні": "Your partner for delivering projects in Ukraine",
     "Партнери обговорюють проєкт біля вікна з видом на забудову міста": "Partners discussing a project by a window overlooking city construction",
     "UGP об’єднує партнерів із досвідом у девелопменті, управлінні, земельних питаннях і GR. Організовуємо реалізацію проєктів для інвесторів та власників активів.": "UGP brings together partners with experience in development, management, land matters and GR. We organise project delivery for investors and asset owners.",
@@ -122,7 +114,6 @@
     "Взаємодія з органами влади та громадами": "Working with authorities and communities",
     "Мови роботи з українськими та іноземними інвесторами": "Working languages with Ukrainian and international investors",
     "Це особистий професійний досвід партнерів UGP. Допомагаємо українським та іноземним інвесторам реалізовувати проєкти в Україні.": "These figures are the individual professional experience of UGP’s partners. We help Ukrainian and international investors deliver projects in Ukraine.",
-
     "Приклади реалізованих проєктів": "Selected project examples",
     "Приклади з досвіду партнерів UGP. Роль партнера зазначаємо в кожному кейсі.": "Examples from the experience of UGP’s partners. The partner’s role is stated in each case.",
     "Житлова нерухомість": "Residential real estate",
@@ -145,7 +136,6 @@
     "План взаємодії зі стейкхолдерами, діалог із громадою, супровід регуляторних рішень.": "A stakeholder engagement plan, dialogue with the community and support through regulatory decisions.",
     "Проєкт отримав зрозумілу позицію в громаді та узгоджений план запуску.": "The project gained a clear standing in the community and an agreed launch plan.",
     "Невелике місто та ділянка, підготовлена під забудову": "Small town with a plot prepared for development",
-
     "Принципи співпраці": "Our working principles",
     "Шість правил, за якими ми ведемо кожен проєкт": "Six rules we apply to every project",
     "Компетентність": "Expertise",
@@ -160,11 +150,9 @@
     "Для складних і зупинених проєктів опрацьовуємо кілька сценаріїв реалізації.": "For complex and stalled projects we work through several delivery scenarios.",
     "Співпраця та комунікація": "Collaboration and communication",
     "Організовуємо спільну роботу всіх учасників. Спілкуємося українською та англійською.": "We organise joint work between all participants and communicate in Ukrainian and English.",
-
     "Обговорімо ваш проєкт": "Let’s discuss your project",
     "Розкажіть про завдання. Визначимо, чим можемо допомогти та з чого почати. Первинна консультація безкоштовна.": "Tell us about your task. We’ll work out how we can help and where to start. The initial consultation is free.",
     "Надіслати запит": "Send a request",
-
     "Нам довіряють": "Trusted by",
     "Cyberion — сайт компанії": "Cyberion — company website",
     "Рембуд-2": "Rembud-2",
@@ -172,7 +160,6 @@
     "Сервіс Солюшнз": "Service Solutions",
     "Громада Захисників — сторінка організації": "Hromada Zakhysnykiv (Defenders’ Community) — organisation page",
     "Громада Захисників": "Hromada Zakhysnykiv (Defenders’ Community)",
-
     "Відгуки": "Testimonials",
     "Тут з’явиться відгук клієнта про співпрацю з UGP. Публікуємо лише справжні відгуки після погодження з авторами.": "A client testimonial about working with UGP will appear here. We publish only genuine testimonials, approved by their authors.",
     "Ім’я Прізвище": "First and last name",
@@ -181,7 +168,6 @@
     "Попередній відгук": "Previous testimonial",
     "Наступний відгук": "Next testimonial",
     "Фрагмент фасаду сучасної будівлі": "Detail of a modern building facade",
-
     "Зворотний зв’язок": "Get in touch",
     "Надішліть запит": "Send us a request",
     "Залиште ім’я та телефон. Зв’яжемося з вами, щоб обговорити завдання і наступні кроки.": "Leave your name and phone number. We’ll get in touch to discuss your task and the next steps.",
@@ -211,7 +197,6 @@
     "Потрібна згода на обробку даних.": "Consent to data processing is required.",
     "Або одразу:": "Or call directly:",
     "чи": "or",
-
     "Ukraine Gateway Partners — партнер з реалізації інвестиційних і девелоперських проєктів в Україні.": "Ukraine Gateway Partners — your partner for delivering investment and development projects in Ukraine.",
     "Розділи сайту": "Site sections",
     "Про компанію": "About the company",
@@ -223,7 +208,6 @@
     "Українська та англійська": "Ukrainian and English",
     "Політика конфіденційності": "Privacy policy"
   },
-
   "script": {
     "'Закрити меню'": "'Close menu'",
     "'Відкрити меню'": "'Open menu'",
@@ -236,6 +220,7 @@
     "'Запит із сайту UGP'": "'Request from the UGP website (EN)'",
     "'Ми підготували лист у вашій поштовій програмі. Запит буде надіслано, щойно ви відправите його звідти. Якщо лист не відкрився — введені дані збережено на сторінці.'": "'We have prepared an e-mail in your mail app. Your request will be sent once you send it from there. If the e-mail did not open, the details you entered are still on the page.'",
     "'Дякуємо! Запит отримано. Зв’яжемося з вами найближчим часом.'": "'Thank you! Your request has been received. We will be in touch shortly.'",
-    "'Не вдалося надіслати запит. Введені дані збережено — спробуйте ще раз.'": "'Your request could not be sent. The details you entered have been kept — please try again.'"
+    "'Не вдалося надіслати запит. Введені дані збережено — спробуйте ще раз.'": "'Your request could not be sent. The details you entered have been kept — please try again.'",
+    "'Забагато запитів за короткий час. Спробуйте за кілька хвилин.'": "'Too many requests in a short time. Please try again in a few minutes.'"
   }
 }

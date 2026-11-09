@@ -1,0 +1,236 @@
+/* Source for assets/css/site.css. Edit here, then run: node build.mjs */
+@import "./fonts.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --spring: cubic-bezier(.34, 1.4, .64, 1);
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+  body { @apply bg-page font-sans text-ink antialiased; line-height: 1.55; }
+  :focus-visible { outline: 2px solid theme('colors.brand.DEFAULT'); outline-offset: 3px; border-radius: .375rem; }
+  .on-navy :focus-visible, .bg-navy :focus-visible { outline-color: theme('colors.page'); }
+  [hidden] { display: none !important; }
+  ::selection { background: theme('colors.navy.DEFAULT'); color: theme('colors.page'); }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-site px-4; }
+  .grid > *, .flex > * { min-width: 0; }
+  .section { @apply py-section-sm lg:py-section; }
+
+  /* Type */
+  .h1 { @apply font-display font-medium; font-size: clamp(1.5rem, 7.6vw, 4rem); line-height: 1.16; letter-spacing: -.04em; text-wrap: balance; }
+  .h2 { @apply font-display font-medium; font-size: clamp(1.375rem, 2.2vw + .95rem, 3rem); line-height: 1.2; letter-spacing: -.03em; text-wrap: balance; }
+  .h3 { @apply font-display font-medium; font-size: clamp(1.25rem, 1.9vw + .85rem, 2.5rem); line-height: 1.2; letter-spacing: -.03em; text-wrap: balance; }
+  .h4 { @apply font-display font-medium text-lg leading-tight min-[360px]:text-[1.375rem] sm:text-[1.625rem]; letter-spacing: -.025em; }
+  .h5 { @apply font-display font-medium text-lg leading-tight sm:text-xl xl:text-[1.375rem]; letter-spacing: -.015em; }
+  .h6 { @apply font-display font-medium text-xl leading-snug; letter-spacing: -.01em; }
+  .body { @apply text-base text-muted; }
+  p, li, dd, dt, blockquote { text-wrap: pretty; }
+  .eyebrow { @apply text-sm font-medium uppercase text-brand; letter-spacing: .0625rem; }
+  .on-navy .eyebrow { @apply text-page; }
+  .label { @apply text-sm font-medium uppercase text-brand; letter-spacing: .0625rem; }
+
+  /* Logo: supplied artwork (Logo 9.svg), drawn in currentColor so it works on light and navy */
+  .logo-svg { @apply block; overflow: visible; }
+
+  /* Icons */
+  .icon { @apply h-5 w-5 shrink-0 fill-none stroke-current; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .icon-lg { @apply h-7 w-7; }
+
+  /* Buttons */
+  .btn { @apply inline-flex min-h-[3.125rem] items-center justify-center gap-2 rounded-lg px-4 py-3 text-base font-medium leading-tight; transition: transform .4s var(--spring); }
+  .btn .icon { transition: transform .4s var(--spring); }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:hover .icon { transform: translateX(3px); }
+  .btn:active { transform: translateY(0) scale(.98); }
+  @media (max-width: 639px) { .btn { width: 100%; } }
+  .btn .icon-down { transition: transform .4s var(--spring); }
+  .btn:hover .icon-down { transform: translateY(3px); }
+  .btn-primary { @apply bg-navy text-page shadow-raised hover:bg-navy-600 active:bg-navy-700; }
+  .btn-light { @apply bg-white text-navy hover:bg-surface-deep active:bg-surface; }
+  .btn-outline { @apply border border-line-strong bg-white/70 text-ink hover:border-ink hover:bg-white active:bg-surface; }
+  .btn-ghost-light { @apply border border-white/25 text-page hover:border-white/70 hover:bg-white/10 active:bg-white/5; }
+
+  .link { @apply inline-flex items-center gap-2 font-medium underline-offset-4 hover:underline active:opacity-70; }
+  .link .icon { transition: transform .4s var(--spring); }
+  .link:hover .icon { transform: translateX(3px); }
+
+  .arrow-btn { @apply grid h-[3.125rem] w-[3.125rem] place-items-center rounded-lg border border-ink bg-white text-ink hover:bg-navy hover:text-page active:bg-navy-700; transition: transform .4s var(--spring), opacity .3s var(--ease-out); }
+  .arrow-btn:hover { transform: translateY(-2px); }
+  .arrow-btn:active { transform: scale(.94); }
+  .arrow-btn:disabled { @apply pointer-events-none opacity-30; }
+  .on-navy .arrow-btn { @apply border-white/40 bg-transparent text-page hover:bg-page hover:text-navy; }
+
+  /* Media: image with colour treatment + bottom gradient */
+  .media { @apply relative isolate overflow-hidden rounded-card bg-surface-deep; }
+  .media img { @apply h-full w-full object-cover; transition: transform 1.1s var(--ease-out); }
+  .media::before { content: ''; @apply pointer-events-none absolute inset-0 z-10 bg-brand/15 mix-blend-multiply; }
+  .media::after { content: ''; @apply pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/30 via-transparent to-transparent; }
+  .media:hover img, .group:hover .media img { transform: scale(1.04); }
+
+  /* Navy surface: layered radial light + grain */
+  .on-navy { @apply relative isolate bg-navy text-page; }
+  .on-navy::before { content: ''; @apply pointer-events-none absolute inset-0 -z-10; background:
+    radial-gradient(60rem 32rem at 12% -10%, rgba(137,161,194,.16), transparent 62%),
+    radial-gradient(48rem 30rem at 96% 108%, rgba(20,68,134,.22), transparent 64%),
+    radial-gradient(28rem 20rem at 70% 30%, rgba(250,250,250,.03), transparent 70%); }
+  .on-navy::after { content: ''; @apply pointer-events-none absolute inset-0 -z-10 opacity-[.07] mix-blend-overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  /* Cards */
+  .card { @apply rounded-card bg-surface; }
+  .card-warm { @apply rounded-card bg-surface-warm; }
+  .lift { transition: transform .5s var(--spring); }
+  .lift:hover { transform: translateY(-4px); }
+
+  /* Principles: numbered rows on hairlines; a brand rule draws in on hover */
+  .principle { @apply relative flex flex-col items-start gap-2 border-b border-line-strong py-6 sm:flex-row sm:gap-5 sm:py-7; }
+  .principle::after { content: ''; @apply absolute inset-x-0 -bottom-px h-0.5 origin-left scale-x-0 bg-brand; transition: transform .6s var(--ease-out); }
+  .principle:hover::after { @apply scale-x-100; }
+  .principle-num { @apply w-8 shrink-0 text-sm sm:pt-1 font-medium tabular-nums text-brand; letter-spacing: .0625rem; }
+  .principle > div { transition: transform .5s var(--spring); }
+  .principle:hover > div { transform: translateX(.25rem); }
+
+  /* Horizontal scrollers that bleed to the viewport edge */
+  .scroller { --gutter: max(1rem, calc((100% - 82.5rem) / 2)); @apply flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2; padding-inline: var(--gutter); scroll-padding-inline: var(--gutter); scrollbar-width: none; }
+  .scroller::-webkit-scrollbar { display: none; }
+  .scroller > * { @apply shrink-0 snap-start; }
+
+  /* Testimonial text column starts on the page grid (the panel is 3/5 of the section) */
+  .quote-panel { padding-left: 1rem; }
+  @media (min-width: 1024px) { .quote-panel { padding-left: max(1rem, calc((166.6667% - 82.5rem) / 2)); } }
+
+  /* Scroll-driven horizontal section: the pane pins and the page scroll moves the cards sideways.
+     Without .is-pinned (phones, short windows, reduced motion) it is a normal swipeable row. */
+  .hscroll-pane { @apply py-section-sm lg:py-section; }
+  .hscroll.is-pinned .hscroll-pane { @apply sticky top-[5.625rem] flex flex-col justify-center overflow-hidden py-8; height: calc(100vh - 5.625rem); }
+  .hscroll.is-pinned .scroller { @apply snap-none overflow-visible; will-change: transform; }
+  .hscroll-card { @apply min-h-[21rem]; }
+  .hscroll.is-pinned .hscroll-card { min-height: clamp(17rem, calc(100vh - 28rem), 27rem); }
+  /* Card photo background: navy colour treatment plus a deep gradient where the text sits */
+  .hscroll-bg { @apply absolute inset-0 -z-20 h-full w-full object-cover; transition: transform 1.1s var(--ease-out); }
+  .hscroll-card:hover .hscroll-bg { transform: scale(1.04); }
+  .hscroll-shade { @apply pointer-events-none absolute inset-0 -z-10; background:
+    linear-gradient(to top, rgba(14,21,31,.94) 0%, rgba(14,21,31,.78) 34%, rgba(14,21,31,.22) 64%, rgba(14,21,31,.08) 100%),
+    linear-gradient(rgba(20,68,134,.16), rgba(20,68,134,.16)); }
+  .hscroll-bar { @apply h-full w-full origin-left bg-ink; transform: scaleX(.2); transition: transform .25s var(--ease-out); }
+
+  /* Mobile menu: full-height overlay below the header bar */
+  .mobile-menu { @apply invisible absolute inset-x-0 top-full overflow-y-auto overscroll-contain bg-page opacity-0; height: calc(100vh - 4.5rem); height: calc(100dvh - 4.5rem); transform: translateY(-.5rem); transition: opacity .3s var(--ease-out), transform .4s var(--ease-out), visibility 0s .3s; }
+  .mobile-menu[data-open] { @apply visible opacity-100; transform: none; transition-delay: 0s; }
+  .menu-link { @apply border-b border-line py-5 font-display text-2xl font-medium hover:text-brand active:opacity-70; letter-spacing: -.02em; }
+  html.menu-open { overflow: hidden; }   /* on the root only: locking body as well would unpin the sticky header */
+  @media (max-height: 640px) { .menu-link { @apply py-3 text-xl; } .mobile-menu nav > div { @apply pt-6; } }
+  html.menu-open header { @apply bg-page; }
+
+  /* Services on phones: two key cards, the rest opens with "Усі напрями роботи" */
+  @media (max-width: 767px) {
+    .svc:not(.is-open) [data-more] { display: none; }
+    .svc .svc-key { order: 1; }
+    .svc [data-more], .svc figure { order: 2; }
+    .svc .card-warm:first-child { order: 0; }
+  }
+  .svc-toggle .icon-down { transition: transform .4s var(--spring); }
+  .svc.is-open .svc-toggle .icon-down { transform: rotate(180deg); }
+  .svc.is-open .svc-toggle:hover .icon-down { transform: rotate(180deg) translateY(3px); }
+
+  /* Stats: numbers count up; a light rule grows along the left edge in step */
+  .stat { @apply relative; }
+  .stat::before { content: ''; @apply absolute -left-px top-0 h-full w-0.5 origin-top bg-brand-soft; transform: scaleY(0); }
+  .stats-run .stat::before { transform: scaleY(1); transition: transform 1.8s cubic-bezier(.16, 1, .3, 1); }
+  .stats-run .stat:nth-child(2)::before { transition-delay: .12s; }
+  .stats-run .stat:nth-child(3)::before { transition-delay: .24s; }
+  .stats-run .stat:nth-child(4)::before { transition-delay: .36s; }
+  .stat-num { @apply inline-block; font-variant-numeric: tabular-nums; }
+
+  /* Case facts: small labels over readable text, rows on hairlines, the result set apart */
+  .case-facts { @apply mt-6 flex flex-col; }
+  .case-facts > div { @apply border-t border-line-strong py-4; }
+  .case-facts dt { @apply text-[.8125rem] font-semibold uppercase text-brand; letter-spacing: .06em; }
+  .case-facts dd { @apply mt-1.5 text-base text-ink; line-height: 1.55; }
+  .case-facts > div:last-child { @apply mt-3 rounded-lg border-t-0 bg-white px-4 py-4 shadow-raised sm:px-5; }
+  @media (max-width: 359px) { .case-facts dd { font-size: .9375rem; } }
+  .case-facts > div:last-child dd { @apply font-medium; }
+
+  /* Client logos: supplied artwork is white, shown in one ink tone on the light strip */
+  .client-link { @apply inline-flex items-center rounded-md py-1; }
+  .client-logo { @apply block; filter: brightness(0); opacity: .82; transition: opacity .3s var(--ease-out), transform .4s var(--spring); }
+  .client-logo-fine { opacity: 1; }   /* thin line art needs full strength to read */
+  .client-link:hover .client-logo { opacity: 1; transform: translateY(-2px); }
+  .client-link:active .client-logo { opacity: .6; }
+
+  /* Language switch */
+  .flag { @apply inline-block h-3.5 w-[1.3125rem] shrink-0 overflow-hidden rounded-[3px]; box-shadow: 0 0 0 1px rgba(19,18,16,.12); }
+  .flag svg { @apply block h-full w-full; }
+  .lang { @apply relative; }
+  .lang-btn { @apply flex h-11 items-center gap-2 rounded-lg border border-line-strong bg-white/70 px-3 text-sm font-semibold text-ink hover:border-ink active:bg-surface; }
+  .lang-chev { transition: transform .35s var(--spring); }
+  .lang.is-open .lang-chev { transform: rotate(180deg); }
+  .lang-menu { @apply invisible absolute right-0 top-full z-50 mt-2 w-32 rounded-card border border-line bg-white p-1.5 opacity-0 shadow-float; transform: translateY(-.375rem); transition: opacity .25s var(--ease-out), transform .35s var(--spring), visibility 0s .25s; }
+  .lang.is-open .lang-menu { @apply visible opacity-100; transform: none; transition-delay: 0s; }
+  .lang-item { @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-[.9375rem] font-medium text-ink hover:bg-surface active:bg-surface-deep; }
+  .lang-tick { @apply ml-auto text-brand opacity-0; }
+  .lang-item[aria-current] .lang-tick { @apply opacity-100; }
+  .lang-seg { @apply inline-flex rounded-lg border border-line-strong p-1; }
+  .lang-seg-item { @apply flex min-h-[2.75rem] flex-1 items-center justify-center gap-2.5 rounded-md px-4 text-[.9375rem] font-medium text-muted hover:text-ink active:opacity-70; }
+  .lang-seg-item[aria-current] { @apply bg-white text-ink shadow-raised; }
+  .mobile-menu .lang-seg { @apply flex w-full; }
+  .lang-seg-dark { @apply border-white/25; }
+  .lang-seg-dark .lang-seg-item { @apply min-h-[2.25rem] px-3 text-sm text-mist hover:text-white; }
+  .lang-seg-dark .lang-seg-item[aria-current] { @apply bg-white/15 text-white shadow-none; }
+
+  /* Header phones: stacked, each one tap to call */
+  .header-phone { @apply flex items-center gap-1.5 whitespace-nowrap py-1 text-[.9375rem] font-medium leading-tight tabular-nums text-ink hover:text-brand active:opacity-70; }
+
+  /* Nav links */
+  .nav-link { @apply relative py-2 text-base text-muted hover:text-ink active:opacity-70; }
+  .nav-link::after { content: ''; @apply absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-ink; transition: transform .45s var(--ease-out); }
+  .nav-link:hover::after, .nav-link[aria-current='true']::after { @apply scale-x-100; }
+  .nav-link[aria-current='true'] { @apply font-medium text-ink; }
+
+  /* Rows with arrows (contacts list) */
+  .row-link { @apply flex items-center justify-between gap-4 border-b border-line-strong py-6 text-lg font-medium; }
+  a.row-link { @apply hover:border-ink hover:text-brand active:opacity-70; }
+  a.row-link .icon { transition: transform .4s var(--spring); }
+  a.row-link:hover .icon { transform: translateX(4px); }
+
+  /* Form */
+  .field-label { @apply mb-2 block text-sm font-medium text-ink; }
+  .field { @apply block w-full rounded-lg border border-line-strong bg-white px-4 py-3 text-base text-ink placeholder:text-muted/60 hover:border-muted focus:border-brand; }
+  .field[aria-invalid='true'] { @apply border-red-700; }
+  .field-error { @apply mt-2 hidden text-sm text-red-700; }
+  [aria-invalid='true'] ~ .field-error, .has-error > .field-error { @apply block; }
+  .form-status { @apply hidden items-start gap-3 rounded-lg border p-4 text-sm leading-relaxed; }
+  .form-status[data-state] { @apply flex; }
+  .form-status[data-state='success'] { @apply border-emerald-700/30 bg-emerald-50 text-emerald-900; }
+  .form-status[data-state='error'] { @apply border-red-700/30 bg-red-50 text-red-900; }
+  .form-status[data-state='info'] { @apply border-brand/30 bg-white text-ink; }
+
+  /* Scroll reveal (only when JS is on) */
+  .js .reveal { opacity: 0; transform: translateY(1.25rem); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+  .js .reveal.visible { opacity: 1; transform: none; }
+  .js .reveal.d1 { transition-delay: .08s; }
+  .js .reveal.d2 { transition-delay: .16s; }
+  .js .reveal.d3 { transition-delay: .24s; }
+
+  /* Hero: fades in on first paint, without waiting for the page script */
+  .js .reveal-now { animation: reveal-in .8s var(--ease-out) both; }
+  .js .reveal-now.d1 { animation-delay: .08s; }
+  .js .reveal-now.d2 { animation-delay: .16s; }
+  @keyframes reveal-in { from { opacity: 0; transform: translateY(1.25rem); } }
+
+  .slide { transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+  .slide[aria-hidden='true'] { @apply pointer-events-none absolute inset-0 opacity-0; transform: translateY(.75rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
